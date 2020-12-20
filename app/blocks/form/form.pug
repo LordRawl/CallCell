@@ -1,0 +1,22 @@
+mixin form()
+	+b('form').form&attributes(attributes)
+		block
+
+mixin form-group()
+	+b.form-group(data-form-group="")&attributes(attributes)
+		block
+
+mixin input-wrapper(title)
+	+e('label').wrapper
+		if (title)
+			+e('p').title !{title}
+
+		+e('input').input(id=attributes.id, aria-label=title)&attributes(attributes)
+		
+		+e('p').error Неверное значение
+
+
+
+include switch
+include checkbox
+		

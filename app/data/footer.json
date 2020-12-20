@@ -1,0 +1,19 @@
+{
+	"list": [
+		{
+			"icon": "clock",
+			"text": "Работаем без выходных. 24/7",
+			"link": null
+		},
+		{
+			"icon": "letter",
+			"text": "maganer@callcell.ru",
+			"link": "mailto:maganer@callcell.ru"
+		},
+		{
+			"icon": "vk",
+			"text": "Вконтакте",
+			"link": "https://vk.com/"
+		}
+	]
+}

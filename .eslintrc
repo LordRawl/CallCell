@@ -1,0 +1,15 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "linebreak-style": 0,
+    "no-underscore-dangle": 0,
+    "indent": [2, "tab"],
+    "no-tabs": 0,
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "space-in-parens": ["error", "always"]
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}

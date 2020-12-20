@@ -1,0 +1,25 @@
+mixin footer()
+  <!--begin footer-->
+  +b('footer').footer&attributes(attributes)
+    +e.top
+      .container
+        +e.content
+          +logo.__logo
+
+          +e('ul').list
+            each item in getData('footer').list
+              +e('li').item
+                +e(item.link ? 'a' : 'div').wrapper(href=item.link ? item.link : null, target=item.link ? '_blank' : null  )
+                  +icon(item.icon).__icon
+                  +e('p').text #{item.text}
+          
+          +call(true).__call
+      
+    +e.bottom
+      .container
+        +e.bottom-content
+          +e('a').link(href="#" target="_blank") Политика конфиденциальности
+
+  <!--end footer-->
+    
+    

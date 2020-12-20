@@ -1,0 +1,31 @@
+.main-offers
+
+  &__list
+    display: flex
+    align-items: center
+
+    > * + *
+      margin-left: 10px
+
+  &__item
+    padding: 0.3em 1.1em
+    @extend %text-16
+    border-radius: 5px
+    cursor: default
+
+    &--theme
+
+      &--main
+        background-color: $color-main
+        color: $color-text-light
+
+      &--second
+        background-color: $color-second
+        color: $color-text-light
+
+      &--third
+        background-color: $color-third
+        color: $color-text-main
+
+  &__text
+    font-weight: 600

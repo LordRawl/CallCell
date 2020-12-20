@@ -1,0 +1,81 @@
+.form-group
+	$g: &
+	position: relative
+	display: block
+
+	&::after
+		content: ''
+		position: absolute
+		+size(100%, 3px)
+		bottom: 0
+		left: 0
+		display: block
+		transition: 0s
+		transform: scaleX(0)
+
+	.form--theme--dark &--focus::after
+		background-color: $color-main
+
+	.form--theme--light &--focus::after
+		background-color: $color-third
+	
+	&--focus
+		&::after
+			transition: transform $ease-main
+			transform: scaleX(1)
+
+	&--error
+		&::after
+			background-color: $color-error !important
+			transition: transform $ease-main
+			transform: scaleX(1)
+		
+	&__button
+		width: 100%
+
+	&__wrapper
+		position: relative
+		display: block
+
+	&__title
+		@extend %text-16
+		pointer-events: none
+		position: absolute
+		transition: $ease-main
+
+		.form--theme--dark &
+			color: $color-basic
+		
+		.form--theme--light &
+			color: $color-text-light
+
+		.form--theme--dark #{$g}--focus &
+			color: $color-main
+
+		.form--theme--light #{$g}--focus &
+			color: $color-third
+
+		#{$g}--focus &, #{$g}--active &
+			font-size: 12px
+			font-weight: 700
+			transform: translateY(-110%)
+
+		#{$g}--error &
+			color: $color-error !important
+
+	&__error
+		font-size: 12px
+		color: $color-error
+		font-weight: 700
+		position: absolute
+		pointer-events: none
+		opacity: 0
+		left: 0
+		top: 100%
+		transition: $ease-main
+
+		#{$g}--error &
+			opacity: 1
+			transform: translateY(5px)
+
+			

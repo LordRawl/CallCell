@@ -1,0 +1,132 @@
+.blog
+  $b: &
+  $b-bg-color: str-slice(#{$color-main}, 2, -1)
+  background-color: $bg-second
+  padding: rem(100px) 0 rem(150px)
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 39.69 80.13'%3E%3Cpath d='M39.69.89V0H0V80.13H39.69v-.9h-19V60.32h19v-.9h-19V40.5h19v-.89h-19V20.7h19v-.89h-19V.89ZM19.81,79.23H.89V60.32H19.81Zm0-19.81H.89V40.5H19.81Zm0-19.8H.89V20.7H19.81Zm0-19.81H.89V.89H19.81Z' fill='%23#{$b-bg-color}' /%3E%3C/svg%3E"), url('../images/blog/blog-bg.svg')
+  background-position: bottom center, 6% 42%
+  background-repeat: repeat-x, no-repeat 
+  background-size: rem(40px) rem(80px), rem(250px) rem(320px)
+
+  &__content
+    position: relative
+
+  &__title
+    text-align: center
+
+  &__slider
+    margin-top: rem(70px)
+
+  &__line-wrapper
+    position: absolute
+    top: -1rem
+    right: -10rem
+
+  &__line
+    fill: none
+    stroke: $color-main
+    stroke-linecap: round
+    stroke-linejoin: round
+    stroke-width: 3px
+    +size(rem(160px), rem(123px))
+    stroke-dasharray: 0 610
+    stroke-dashoffset: 1
+  
+
+.blog-slider
+  $slider-gap: rem(30px)
+  padding: 0 $slider-gap rem(35px)
+  margin-left: -$slider-gap
+  margin-right: -$slider-gap
+
+  &__list
+    z-index: 0
+
+  &__item
+    height: auto
+    position: relative
+  
+  &__wrapper
+    background-color: $bg-basic
+    border-radius: 5px
+    height: 100%
+    padding: rem(40px)
+    display: flex
+    flex-direction: column
+    transition: box-shadow $ease-main
+
+    &:hover
+      z-index: 3
+      box-shadow: 0px 15px 25px rgba(163, 163, 163, 0.3)
+
+      .blog-slider__icon
+        transform: scale(1.1) rotate(5deg)
+
+  &__top
+    display: flex
+    align-items: center
+    margin-bottom: auto
+
+    > * + *
+      margin-left: rem(20px)
+
+  &__title
+    font-weight: 700
+    @extend %text-18
+    font-family: $font-second
+  
+  &__icon-wrapper
+    flex-shrink: 0
+    display: flex
+    align-items: center
+    justify-content: center
+    position: relative
+    z-index: 1
+    +size(rem(60px))
+
+  &__icon
+    +fill-img
+    transition: $ease-main
+
+  &__bottom
+    margin-top: rem(30px)
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+  &__link
+    display: flex
+    align-items: center
+
+    > * + *
+      margin-left: rem(8px)
+
+  &__link-text
+    @extend %text-14
+    font-weight: 600
+    color: $color-main
+    position: relative
+  
+  &__link-icon
+    +size(rem(21px), rem(7px))
+    fill: $color-main
+
+  &__date
+    @extend %text-14
+    color: $color-text-second
+
+  &__buttons
+    // margin-top: rem(30px)
+    display: flex
+    align-items: center
+    justify-content: center
+
+    > * + *
+      margin-left: rem(50px)
+
+  &__button
+
+  &__paginations
+
+    .-active-
+      background-color: $color-third

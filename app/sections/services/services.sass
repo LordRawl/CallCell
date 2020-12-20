@@ -1,0 +1,124 @@
+.services
+	background-color: $bg-second
+	padding: rem(100px) 0
+	position: relative
+	z-index: 2
+
+	&__content
+		text-align: center
+		position: relative
+
+	&__title
+
+	&__subtitle
+		@extend %text-18
+		color: $color-text-second
+		margin-top: rem(20px)
+	
+	&__slider
+		position: relative
+	
+	&__bottom
+		margin-top: rem(50px)
+	
+	&__button
+	
+	&__field
+		position: absolute
+		pointer-events: none
+		+cx
+		width: 1920px
+		bottom: 0
+		top: 0
+		z-index: -1
+	
+	&__hand
+		position: absolute
+		bottom: 0
+		left: 50%
+		transform: translateX(40%)
+		+size(rem(354px), rem(150px))
+		fill: none
+		stroke: #000
+		stroke-width: 3px
+
+		&-line
+			stroke-dasharray: 0 900
+			transition: 0s
+
+			.services__hand.-animate- &
+				transition: stroke-dasharray 2s linear
+				stroke-dasharray: 900 900
+
+				&:last-child
+					transition-delay: 0.5s
+
+	&__triangles
+		+size(rem(150px), rem(470px))
+		position: absolute
+		left: -20rem
+		+cy
+		fill: $color-third
+	
+	&__line
+		position: absolute
+		right: 0
+		bottom: 0
+		transform: translateY(70%)
+		+size(15vh, 60vh)
+		z-index: 10
+
+
+.services-slider
+	margin: rem(70px) rem(70px) 0
+	position: relative
+
+	&__list
+
+	&__item
+		background-color: $bg-basic
+		text-align: center
+		border-radius: 5px
+		padding: rem(30px) rem(20px) rem(40px)
+		height: auto
+		cursor: default
+
+		&:hover
+			.services-slider__image
+				transform: scale(1.1) rotate(5deg)
+
+	&__image-wrapper
+		position: relative
+		margin: auto
+		+size(rem(200px), rem(150px))
+
+	&__image
+		+fill-img
+		transition: transform $ease-main
+
+	&__heading
+		color: $color-text-main
+		@extend %text-24
+		font-family: $font-second
+		font-weight: 700
+		margin-top: rem(25px)
+		line-height: 1.1
+
+	&__descr
+		@extend %text-16
+		color: $color-text-second
+		margin-top: rem(10px)
+	
+	&__buttons
+		position: absolute
+		pointer-events: none
+		+cy
+		width: 100%
+		z-index: 10
+
+		> *
+			pointer-events: auto
+	
+	&__paginations
+		margin-top: rem(30px)
+

@@ -1,0 +1,46 @@
+$color-button: white
+$border-radius-button: 10px
+	
+.button
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	border: 0
+	box-sizing: border-box
+	background-color: $color-second
+	transition: $ease-main
+	cursor: pointer
+	line-height: 1
+	color: $color-button
+	appearance: none
+	border-radius: $border-radius-button
+	box-shadow: 0 0.3em 0 #ED4F3A, 0 1.2em 2.25em rgba(255, 83, 61, 0.3), inset 0px -0.4em 0.65em rgba(255, 255, 255, 0.11), inset 0px 0.3em 0.65em rgba(255, 255, 255, 0.13)
+
+	$b: &
+
+	&[disabled]
+		opacity: .5
+		cursor: not-allowed
+ 
+	&:hover
+		background-color: $color-second-light
+	
+	&:active
+		box-shadow: 0px 0.15em 0px #ED4F3A
+		transform: translateY(0.1em)
+	
+	&--size
+
+		&--md
+			font-size: 14px
+			padding: 1em 1.8em
+
+		&--lg
+
+		&--xl
+			font-size: 20px
+			padding: 1.25em 2.25em
+
+
+
+

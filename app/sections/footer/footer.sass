@@ -1,0 +1,68 @@
+.footer
+  $b: &
+  
+  &__top
+    padding: rem(30px) 0
+
+  &__content
+    display: flex
+
+    > * + *
+      margin-left: rem(70px)
+
+  &__list
+    display: flex
+    align-items: center
+    flex-grow: 1
+
+    > * + *
+      margin-left: rem(70px)
+
+  &__item
+
+  &__wrapper
+    display: flex
+    align-items: center
+
+    > * + *
+      margin-left: rem(10px)
+
+    @at-root a#{&}
+
+      &:hover
+        color: $color-main
+
+  &__icon
+    +size(rem(25px))
+
+  &__text
+    @extend %text-16
+
+  &__bottom
+    padding: rem(10px) 0 rem(15px)
+    border-top: 1px solid $color-border
+  
+  &__bottom-content
+    text-align: center
+
+  &__link
+    color: $color-text-second
+    @extend %text-12
+    position: relative
+
+    &::after
+      content: ''
+      position: absolute
+      bottom: -1px
+      left: 0
+      width: 100%
+      transition: $ease-main
+      border-bottom: 1px solid
+      transform: scaleX(1)
+    
+    &:hover
+      color: $color-main
+
+      &::after
+        transform: scaleX(0)
+

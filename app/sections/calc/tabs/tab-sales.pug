@@ -1,0 +1,98 @@
++tab-wrapper()(data-tab="calc-tab-2" data-tab-group="calcTabs" data-calc-store="sales").calc__slide
+	+e('ul').list
+		+e('li').item(data-range-wrapper="", class="--min")
+			+e.header
+				span.calc__subtitle Кол-во контактов в работу 
+				span.calc__accent(data-range-counter="")
+
+			+range(
+				data-start="3000" 
+				data-min="100"
+				data-max="10000"
+				data-step="100"
+				data-steps='{"30%":[500, 500]}'
+				data-range-type="contacts"
+			)
+		
+		+e('li').item(data-range-wrapper="", class="--min")
+			+e.header
+				span.calc__subtitle Разработка скрипта
+
+			+switch()(
+				data-calc-switch=""
+				data-switch-before="Нет", 
+				data-switch-after="Да",
+				data-false-value="0",
+				data-true-value="2500",
+				data-switch-type="script"
+			)
+		
+		+e('li').item--df.__item--aie(data-range-wrapper="", class="--max")
+			+e.item-block--max
+				+e.header
+					span.calc__subtitle Ваш клиент
+					span.calc__accent(data-range-counter="")
+
+				+switch()(
+					data-calc-switch=""
+					data-switch-before="Физ лицо", 
+					data-switch-after="Юр лицо",
+					data-false-value="20",
+					data-true-value="28",
+					data-switch-type="client"
+					data-switch-connect="lpr"
+				)
+				
+			+e.item-block
+				+checkbox().--size--xl(
+					data-calc-checkbox=""
+					data-false-value="0",
+					data-true-value="3",
+					data-checkbox-type="lpr"
+					data-checkbox-connect="client"
+				) 
+					+b('p').calc__checkbox-text--normal Выходим на лицо принимающее решение (ЛПР)
+		
+		+e('li').item--df(data-range-wrapper="", class="--max")
+			+e.item-block
+				+e.header
+					span.calc__subtitle Работа в
+			
+			+e.item-block
+				+checkbox().--size--xl(
+					data-calc-checkbox=""
+					data-false-value="0",
+					data-true-value="5",
+					data-checkbox-type="crm"
+				) 
+					+b('p').calc__checkbox-text--bold CRM
+
+			+e.item-block
+				+checkbox().--size--xl(
+					data-calc-checkbox=""
+					data-false-value="0",
+					data-true-value="4",
+					data-checkbox-type="messangers"
+				) 
+					+b('p').calc__checkbox-text--bold Мессенджерах
+
+			+e.item-block
+				+checkbox().--size--xl(
+					data-calc-checkbox=""
+					data-false-value="0",
+					data-true-value="4",
+					data-checkbox-type="letters"
+				) 
+					+b('p').calc__checkbox-text--bold Отправка писем
+		
+	+e.bottom
+		+e('p').text--max--md Прогнозируемая стоимость
+		+e('p').price
+			+e('span')(data-calc-output="sales").price-numb 0
+			|  ₽
+			+e('sup').price-symb *
+
+		+e('svg').arrow(viewBox="0 0 172.46 81.87")
+			+e('path')(d="M.33,47.37C15.89,60.88,31.11,63.62,51.14,62.59c27.92-.9,40.53-13.52,74.17-17.86C157,43.4,166.79,66.15,153.19,77.81c-16.73,12.29-39.69-9.18-29.13-35.09,9.57-20.15,27.24-23,47.17-41.46").arrow-line
+			+e('polyline')(points="167.59 1.89 171.74 0.72 170.55 4.85").arrow-pike
+

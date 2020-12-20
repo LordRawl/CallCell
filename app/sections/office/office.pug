@@ -1,0 +1,29 @@
+- var list = ['Статистика по звонкам', 'Аналитика расходов', 'Импорт и экспорт базы', 'Корректировка скриптов в режиме онлайн']
+
+mixin office()
+  <!--begin office-->
+  +b('section').office&attributes(attributes)
+    .container
+      +e.content
+        +e.block
+          +e('h2').title.title Личный кабинет с подробной статистикой 
+          +e('p').text--mt--xl Наблюдайте за процессом работы в режиме онлайн
+
+          +e.list-wrapper
+            +e('ul').list
+              each item in list
+                +e('li').item
+                  +e('p').descr #{item}
+            
+            +e.arrow-wrapper
+              +e('svg').arrow(viewBox="0 0 41.29 100.83" fill="none")
+                +e('path')(d="M29.61.3C56.13,35.07,31,82.09.79,100.3" stroke-linecap="round").arrow-line
+                +e('polyline')(points="4.43 92.4 0.79 100.3 11.8 99.95").arrow-pike
+
+          +e.bottom
+            +button.--size--xl.__button Подробнее о кабинете
+          
+        +img(src="office/monitor.png", webp).monitor
+
+  <!--end office-->
+    

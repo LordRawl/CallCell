@@ -1,0 +1,47 @@
+mixin resultPalm()
+  - var palm = getData('results').palm
+  +e.palm-wrapper&attributes(attributes)!= palm
+
+mixin resultRibbon()
+  - var ribbon = getData('results').ribbon
+  +e.ribbon-wrapper&attributes(attributes)!= ribbon
+
+mixin results()
+  <!--begin results-->
+  +b('section').results&attributes(attributes)
+    .container
+      +e.content
+        +e('h2').title.title.fade-bottom Какие результаты получили наши клиенты
+        +e('p').subtitle.fade-bottom Примеры последних проектов в работе
+
+        +b.results-slider.swiper-container.__slider.fade-bottom
+          +e('ul').list.swiper-wrapper
+            each item in getData('results').list
+              +e('li').item.swiper-slide
+                +e.icon-wrapper
+                  +icon(item.icon).icon
+
+                +e('h3').title #{item.title}
+                +e('ul').sublist
+                  each bullet in item.bullets
+                    +e('li').subitem
+                      +e('span').name !{bullet.name}
+                      +e('span').text !{bullet.value}
+                
+                +e.bottom
+                  +e('button')(type="button").link #{item.button}
+          
+        .swiper__buttons.results-slider__buttons.fade-bottom
+          +swiperButton('prev')(aria-label="Показать предыдущий слайд").results-slider__button-prev
+          
+          .swiper__paginations.results-slider__paginations
+
+          +swiperButton('next')(aria-label="Показать следующий слайд").results-slider__button-next
+
+        +resultPalm.--left
+        +resultPalm.--right
+        +resultRibbon
+
+  <!--end results-->
+    
+    

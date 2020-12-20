@@ -1,0 +1,174 @@
+$positions: -2.3rem 8.4rem, 12rem -0.4rem, 20rem 15rem, 36.8rem 8.5rem, 53rem 0.2rem, 59rem 13.2rem
+	
+.stages
+	$b: &
+	padding: rem(100px) 0
+	position: relative
+	z-index: 2
+	+bg('stages/stages-bg.svg', $size: auto, $position: 105% 50%, $color: $bg-second)
+
+	&__content
+
+	&__title
+		text-align: center
+		opacity: 0
+
+	&__wrapper
+		+ratio(1170px, 415px)
+		width: 100%
+		position: relative
+		margin-top: rem(90px)
+		z-index: 1
+
+	&__list
+
+	&__item
+		position: absolute
+		opacity: 0
+
+		@each $posX, $posY in $positions
+			$idx: index($positions, $posX $posY)
+			&-#{$idx}
+				left: $posX
+				top: $posY
+		
+		&-1
+			.stages__img-wrapper
+				&::before, &::after
+					border-radius: 50%
+
+				&::before
+					right: - rem(14px)
+					background: $color-main
+			
+			.stages__text
+				max-width: rem(180px)
+
+		&-2
+			.stages__img-wrapper
+				&::before, &::after
+					border-radius: 70% 63% 65% 65%/60% 65% 65% 80%
+
+				&::before
+					right: - rem(12px)
+					background: $color-third
+			
+			.stages__text
+				max-width: rem(190px)
+
+		&-3
+			.stages__img-wrapper
+				&::before, &::after
+					border-radius: 90% 65% 60% 100%/70% 85% 80% 100%
+
+				&::before
+					left: - rem(7px)
+					top: rem(2px)
+					background: $color-second-gray
+			
+			.stages__text
+				max-width: rem(150px)
+
+		&-4
+			.stages__img-wrapper
+				&::before, &::after
+					border-radius: 80% 65% 60% 100%/70% 75% 70% 90%
+
+				&::before
+					left: - rem(8px)
+					top: rem(2px)
+					background: $color-main
+			
+			.stages__text
+				max-width: rem(180px)
+
+		&-5
+			.stages__img-wrapper
+				&::before, &::after
+					border-radius: 70% 55% 50% 80%/60% 75% 60% 80%
+
+				&::before
+					left: - rem(8px)
+					background: $color-second-gray
+			
+			.stages__text
+				max-width: rem(150px)
+
+		&-6
+			.stages__img-wrapper
+				&::before, &::after
+					border-radius: 60% 50% 50% 50%/50% 60% 40% 60%
+
+				&::before
+					right: - rem(8px)
+					background: $color-third
+			
+			.stages__text
+				max-width: rem(220px)
+
+
+	&__img-wrapper
+		margin: 0 auto
+		display: flex
+		align-items: center
+		justify-content: center
+		position: relative
+		z-index: 1
+		+size(rem(107px), rem(110px))
+
+		&::before, &::after
+			content: ''
+			position: absolute
+			z-index: -1
+			+size(100%)
+			display: block
+
+		&::after
+			border: 2px solid black
+			background: $bg-basic
+
+	&__img
+		+size(rem(70px))
+
+	&__text
+		font-weight: 600
+		color: $color-text-main
+		max-width: 180px
+		text-align: center
+		margin-top: rem(20px)
+		@extend %text-14
+
+	&__line
+		fill: none
+		stroke: $color-second-gray
+		stroke-linecap: round
+		stroke-linejoin: round
+		stroke-width: 3px
+		position: absolute
+		top: 0
+		left: 4rem
+		+size(rem(1003px), rem(348px))
+		z-index: -1
+
+		> *
+			stroke-dashoffset: 1
+			stroke-dasharray: 0 20
+	
+	&__dashed-line
+		position: absolute
+		left: 0
+		bottom: 0
+		transform: translateY(70%) scaleX(-1)
+		+size(15vh, 60vh)
+		z-index: -1 
+	
+	&__infinite
+		fill: none
+		stroke: $color-main
+		stroke-width: 2px
+		position: absolute
+		right: 100%
+		top: 0
+		transform: translate(-3rem, 4rem)	
+		+size(rem(147px), rem(82px))
+		stroke-dasharray: 0 390

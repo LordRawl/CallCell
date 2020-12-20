@@ -1,0 +1,21 @@
+include _externalIncludes
+include _internalIncludes
+include _mixins
+
+-
+  var projectName = 'CallCell'
+  var site = "callcell.ru"
+  var pageOgTitle = 'Аутсорс Колл-Центр 24/7'
+  var pageOgDescription = ''
+
+doctype html
+html(lang='ru')
+  include head
+
+  body
+    .wrapper
+      block content
+      
+    block scripts
+    
+    script(src='assets/scripts/app.min.js')

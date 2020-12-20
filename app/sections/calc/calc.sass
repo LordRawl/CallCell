@@ -1,0 +1,207 @@
+$c-w-border-width: 2px
+$c-c-padding: rem(70px)
+
+.calc
+	padding: rem(100px) 0
+	+bg('calc/calc-bg.svg', $size: auto)
+	position: relative
+	z-index: 1
+
+	&__content
+
+	&__title
+		text-align: center
+
+	&__tabs
+		margin-top: rem(70px)
+
+	&__tabs-content
+		position: relative
+		flex-grow: 1
+		display: flex
+		flex-direction: column
+		background-color: $bg-basic
+
+		> *
+			flex-grow: 1
+
+	&__wrapper
+		margin-top: rem(40px)
+		display: flex
+		justify-content: space-between
+		position: relative
+		border-radius: 5px
+		border: $c-w-border-width solid $color-border
+
+	&__form
+		background-color: $color-third
+		padding: rem(70px)
+		width: rem(470px)
+		flex-shrink: 0
+		margin: (-$c-w-border-width) (-$c-w-border-width) (-$c-w-border-width) 0
+
+	&__slide
+		padding: $c-c-padding
+		display: flex
+		flex-direction: column
+
+	&__anno
+		position: absolute
+		top: 100%
+		left: $c-c-padding
+		@extend %text-14
+		color: $color-text-second
+		transform: translateY(10px)
+
+	&__header
+		display: flex
+		justify-content: space-between
+		align-items: center
+		width: 100%
+		min-height: rem(25px)
+
+		&:not(:last-child)
+			margin-bottom: rem(10px)
+
+	&__subtitle
+		color: $color-text-second
+		@extend %text-14
+
+	&__accent
+		font-family: $font-second
+		font-weight: 700
+		@extend %text-18
+
+	&__block
+		height: 100%
+		display: flex
+		flex-direction: column
+
+	&__list
+		display: flex
+		flex-wrap: wrap
+		align-items: flex-end
+		margin: rem(-50px) rem(-30px) rem(40px)
+
+		&--min
+			max-width: 55%
+
+	&__item
+		margin: rem(50px) 0 0
+		padding: 0 rem(30px)
+
+		&--min
+			width: 50%
+
+		&--max
+			width: 100%
+
+		&--df
+			display: flex
+			align-items: center
+
+			> * + *
+				margin-left: rem(30px)
+
+		&--aie
+			align-items: flex-end
+
+	&__item-block
+		// flex-shrink: 0
+
+		&--max
+			flex-grow: 1
+			min-width: 50%
+	
+		&[disabled]
+			opacity: 0.6
+			pointer-events: none
+
+	&__bottom
+		margin-top: auto
+		display: inline-flex
+		align-items: center
+		position: relative
+	
+		> * + *
+			margin-left: rem(40px)
+
+	&__text
+		@extend %text-16
+		font-weight: 600
+		color: $color-text-main
+
+		&--max--md
+			max-width: rem(130px)
+	
+	&__price
+		@extend %text-40
+		color: $color-text-main
+
+	&__price-numb
+		font-family: $font-second
+		font-weight: 700
+
+	&__price-symb
+		font-size: rem(20px)
+		top: -0.7em
+	
+	&__img-wrapper
+		position: absolute
+		bottom: 0
+		right: -2rem
+		font-size: 0
+		z-index: -1
+
+	&__img
+
+	&__arrow
+		position: absolute
+		+size(rem(172px), rem(82px))
+		fill: none
+		stroke: black
+		margin: 0
+		left: 24rem
+		top: -1rem
+
+	&__phone-wrapper
+		position: absolute
+		bottom: 0
+		right: 80%
+		+size(rem(350px), rem(520px))
+		z-index: -1
+
+	&__phone
+		+size(100%)
+		opacity: 0
+
+	&__phone-beeps
+		+size(100%)
+		position: absolute
+		top: 0
+		right: 0
+
+	&__phone-beep
+		stroke-width: 2px
+		stroke: $color-third
+		fill: none
+		stroke-dasharray: 0 170
+
+	&__checkbox-text
+		line-height: 1
+		color: $color-text-gray
+		transition: $ease-main
+		padding: 3px 0
+		text-decoration: underline
+
+		&--normal
+			font-size: 14px
+
+		&--bold
+			font-family: $font-second
+			font-weight: 700
+			@extend %text-18
+		
+		.checkbox--active &
+			color: $color-text-main
+			text-decoration: none

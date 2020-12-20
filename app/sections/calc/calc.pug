@@ -1,0 +1,71 @@
+- var tabsHeaderList = ['Входящие звонки и&nbsp;обработка заявок', 'Телемаркетинг, лидогенерация и&nbsp;продажи', 'Выделенный личный менеджер']
+
+mixin calc()
+  <!--begin calc-->
+  +b('section').calc&attributes(attributes)
+    .container
+      +e.content
+        +e('h2').title.title.fade-bottom Настройка вашего колл-центра
+        
+        +tabs.__tabs.fade-bottom
+          each tab, idx in tabsHeaderList
+            -
+              var className = ''
+              switch (idx) {
+                case 0:
+                  className = '--active --min'
+                  break;
+                case 1:
+                  className = '--max'
+                  break;
+                default: 
+                  className = '--min'
+                  break;
+              }
+
+            +tab(data-tab-target=`calc-tab-${idx+1}` class=className)
+              +e.text !{tab}
+        
+        +e.wrapper.fade-bottom
+          +e('p').anno *Не является офертой. Расчет является предварительным. 
+          
+          +tabs-content.calc__tabs-content
+            include tabs/tab-leads
+
+            include tabs/tab-sales
+            
+            include tabs/tab-man
+
+          
+          +form.--theme--dark.--bg.__form.fade-bottom
+            +e('h3').title.fade-bottom Получите подробный расчёт стоимости
+            +e('p').subtitle.fade-bottom Оставьте свои контакты, наш манеджер вам перезвонит, чтобы сделать подробный расчет вашего колл-центра 
+
+            +form-group.fade-bottom
+              +input-wrapper('Контактный номер')(name="phone" type="text")
+
+            +form-group.fade-bottom
+              +input-wrapper('Ваша почта')(name="email" type="text")
+            
+            +form-group.fade-bottom
+              +button(type="submit").--size--xl.__button Подробный расчет
+
+            +e.accept.fade-bottom
+              +checkbox().--size--md(
+                data-form-checkbox=""
+                data-checkbox-type="accept"
+              )
+                p.form__accept-text Я принимаю условия 
+                  a(href="#" target="_blank").form__accept-link передачи информации
+
+    +e.phone-wrapper
+      +e('img').phone(src="assets/images/calc/phone.svg" alt="Телефонная трубка")
+      +e('svg').phone-beeps(viewBox="0 0 350 520")
+        +e('path')(d="M155.47,60.25c11.22-.93,21.61-4.06,31.61-8.26,5.69-6.59,11.36-15.88,16.37-24.45l28,30.26,18.28-34,24,11.83").phone-beep
+        +e('polyline')(points="166.84 69.11 190.62 76.12 204.15 59.08 236.23 79.13 265.67 63.87").phone-beep
+        +e('polyline')(points="146.86 73.71 186.01 106.35 214.4 90.3 240.51 111.73").phone-beep
+
+
+  <!--end calc-->
+    
+    

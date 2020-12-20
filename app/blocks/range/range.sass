@@ -1,0 +1,56 @@
+// #####
+// Range-слайдер
+// #####
+// @import '../../node_modules/nouislider/distribute/nouislider.css'
+$gradient-thumb: $color-second
+$range-bg-base: #E4E4E4
+$range-bg-connect: rgba($color-second, 0.5)
+
+.range 
+	display: inline-flex
+	flex-direction: column
+	width: 100%
+
+
+.range .noUi 
+
+	&-base 
+		height: 5px
+		background-color: $range-bg-base
+		position: relative
+		margin: 10px 0 // margin нужен, чтобы handler не налезал на другие элементы
+		cursor: pointer
+		border-radius: 50px
+
+	&-connect 
+		z-index: 1
+		top: 0
+		right: 0
+		+size(100%)
+		transform-origin: 0 0
+		transform-style: flat
+		position: absolute
+		background: $range-bg-connect
+		border-radius: 50px
+
+	&-handle 
+		position: absolute
+		+size(20px)
+		top: 50%
+		right: -20px
+		transform: translate(0%, -50%)
+		border-radius: 50%
+		background: $gradient-thumb
+		border: none
+		cursor: grab
+		box-shadow: 0px 2px 0px #ED4F3A, 0px 4px 15px rgba(255, 83, 61, 0.35), inset 0px -8px 13px rgba(255, 255, 255, 0.11), inset 0px 6px 13px rgba(255, 255, 255, 0.13)
+
+		&:active
+			cursor: grabbing
+
+	
+	&-origin 
+		position: absolute
+		top: 0
+		right: 0
+		+size(10%, 100%)

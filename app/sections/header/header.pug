@@ -1,0 +1,24 @@
+mixin header()
+  <!--begin header-->
+  +b('header').header&attributes(attributes)
+    .container
+      +e.content
+        +logo.__logo
+
+        +e.navbar
+          +e('ul').list
+            each item in getData('header').navbar
+              +e('li').item
+                +e('span').hover-border--first
+                +e('a').link.js-anchor(href=item.link) #{item.text}
+                +e('span').hover-border--last
+
+        +e.block
+          +call.__call
+
+          +e.button-wrapper
+            +button(type="button").--size--md.__button Перезвоните мне
+
+  <!--end header-->
+    
+    

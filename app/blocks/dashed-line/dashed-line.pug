@@ -1,0 +1,30 @@
+mixin dashed-line()
+  +b.dashed-line&attributes(attributes)
+    +e('svg').svg(viewBox="0 0 162 602")
+      line(x1="161.5" y1="1.38" x2="133.97" y2="12.94")
+      path(d="M107.51,42.62A127.9,127.9,0,0,1,93.26,54.85")
+      line(x1="64.07" y1="91.65" x2="53.29" y2="110.71")
+      path(d="M28.56,147.07A52.86,52.86,0,0,0,25,173.66")
+      path(d="M8.8,216.91A30.92,30.92,0,0,0,6.23,240.8")
+      line(x1="1.5" y1="292.54" x2="2.11" y2="310.81")
+      path(d="M8.07,354a43.69,43.69,0,0,0,2.13,19")
+      line(x1="17.71" y1="415.83" x2="27.47" y2="439.58")
+      path(d="M44.51,472.83a107.67,107.67,0,0,0,17.32,23")
+      line(x1="87.56" y1="535.71" x2="106.82" y2="558.23")
+      line(x1="129.64" y1="584.46" x2="152.45" y2="601.38")
+    
+mixin ui-kit-dashed-line()
+  +ui-section
+    +ui-section-head
+      +ui-title Блок dashed-line
+      +ui-path
+        p Блок: blocks/dashed-line/dashed-line
+      +ui-description
+        p Описание Блока
+  
+    +ui-section-content()
+      +dashed-line
+      
+    //- При +ui-section-content(true) контейнер отсутствует
+    //- Для перечисления инлайновых блоков используется миксин +ui-elements-list()
+    //- Рамка вокруг особой секции: +ui-special()

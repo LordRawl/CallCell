@@ -1,0 +1,60 @@
+.form
+	display: block
+
+	&--bg
+		+bg('form-bg.jpg')
+		border-radius: 5px
+
+	> * + *
+		margin-top: rem(40px)
+
+	&__title
+		@extend %text-24
+		font-weight: 700
+		text-align: center
+
+		.form--theme--dark &
+			color: $color-basic
+		
+		.form--theme--light &
+			color: $color-text-light
+	
+	&__descr
+		@extend %text-14
+		text-align: center
+		// color: $color-text-gray
+	
+	&__checkbox
+		margin-top: 10px
+		line-height: 0
+
+	&__link
+		color: inherit
+		text-decoration: underline
+
+	&__accept
+		margin-top: rem(20px)
+		display: flex
+		justify-content: center
+		align-items: center
+		cursor: pointer
+
+	&__accept-text
+		@extend %text-12
+
+		.form--theme--dark &
+			color: $color-text-second
+		
+		.form--theme--light &
+			color: $color-text-light
+	
+	&__accept-link
+		text-decoration: underline
+		transition: color $ease-main
+
+		.form--theme--dark &:hover
+			color: $color-main
+		
+		.form--theme--light &:hover
+			color: $color-third
+

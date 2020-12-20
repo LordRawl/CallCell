@@ -1,0 +1,19 @@
+mixin range()
+  +b.range.js-range&attributes(attributes)
+
+    
+mixin ui-kit-range()
+  +ui-section
+    +ui-section-head
+      +ui-title Блок range
+      +ui-path
+        p Блок: blocks/range/range
+      +ui-description
+        p Описание Блока
+  
+    +ui-section-content()
+      +range
+      
+    //- При +ui-section-content(true) контейнер отсутствует
+    //- Для перечисления инлайновых блоков используется миксин +ui-elements-list()
+    //- Рамка вокруг особой секции: +ui-special()

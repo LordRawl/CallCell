@@ -1,0 +1,8 @@
+node_modules
+/**/*.code-workspace
+dist
+*.log
+.idea
+app/.idea
+package-lock.json
+.publish

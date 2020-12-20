@@ -1,0 +1,167 @@
+extends ../../layouts/default
+include ui-kit-mixins
+
+block head
+  - var pageTitle = projectName + ' | UI-кит'
+
+block content
+  script.
+    if (window.NodeList && !NodeList.prototype.forEach) {
+      NodeList.prototype.forEach = function (callback, thisArg) {
+        thisArg = thisArg || window;
+        for (var i = 0; i < this.length; i++) {
+          callback.call(thisArg, this[i], i, this);
+        }
+      };
+    }
+    window.addEventListener('load', function () {
+     var section = document.querySelectorAll('.ui-kit__section'),
+         navList = document.querySelector('.ui-kit__navigation__list');
+    
+      section.forEach(function (item, index) {
+        var id = 'section' + index;
+        var name = item.querySelector('.ui-kit__section-head h2').innerText;
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+      
+        a.setAttribute('href', '#'+id);
+        a.innerText = name;
+        a.classList.add('js-anchor');
+        li.appendChild(a);
+        
+        navList.appendChild(li);
+        item.setAttribute('id', id);
+      });
+    });
+
+  +b.ui-kit
+    +e.navigation
+      +e.UL.navigation__list
+
+    //- Шапка ui-кита
+    +e.SECTION.head&attributes(attributes)
+      .container
+        +e.IMG.logo(src="assets/images/logo.svg", alt="Логотип проекта")
+        +e.name Название проекта
+
+    //- Сетка
+    +ui-section._grid
+      +ui-section-head
+        +ui-title Сетка
+        +ui-description
+          p Колонок: 12 ($grid-cols)
+          p Переменные: styles/helpers/_variables.scss
+          p Блок: blocks/grid/
+
+          +ui-special
+            p Возможные варианты использования
+            p
+              pre +col(12) аналогично +col({ xl: 12 })
+            p
+              pre +col({ xl: 8, lg: 6: md: 5, sm: 7, xs: 12 })
+            p Промежуточные брейкпоинты указывать не обязательно
+            p При следующей записи - блок будет занимать 6 колонок на всех разрешениях, а на самом маленьком (xs) — 12
+            p
+              pre +col({ xl: 6, xs: 12 })
+
+      +ui-section-content()
+        +grid
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(1)
+          +col(4)
+          +col(4)
+          +col(4)
+          +col(6)
+          +col(6)
+
+    //- Шрифты
+    +ui-section
+      +ui-section-head
+        +ui-title Шрифты
+        +ui-path
+          p Переменные находятся в файле styles/helpers/_variables.scss
+          p Шрифты подключены в styles/helpers/_fonts.scss
+        +ui-description
+          p Основной шрифт: Arial ($font-main), font-weight: 400, 600
+          p Дополнительный шрифт: Times New Roman ($font-second), font-weight: 400, 600
+
+    //- Цвета
+    +ui-section
+      +ui-section-head
+        +ui-title Цвета сайта
+        +ui-path Переменные находятся в файле styles/helpers/_variables.scss
+      +ui-section-content()
+        +ui-elements-list()
+          - var n = 0;
+          while n < 30
+            +ui-color._color
+            - n++
+
+    //- Градиенты
+    +ui-section
+      +ui-section-head
+          +ui-title Градиенты
+          +ui-path Миксины градиентов находятся в файле styles/helpers/_gradients.scss
+      +ui-section-content()
+        +ui-elements-list()
+          - var n = 0;
+          while n < 20
+            +ui-color._gradient
+            - n++
+
+    //- Блок button
+    +ui-kit-button
+
+    //- Компонент social
+    +ui-kit-social
+  
+
+    //- Блок logo
+    +ui-kit-logo
+  
+
+    //- Блок call
+    +ui-kit-call
+  
+
+    //- Блок main-present
+    +ui-kit-main-present
+  
+
+    //- Блок main-offers
+    +ui-kit-main-offers
+  
+
+    //- Блок swiper
+    +ui-kit-swiper
+  
+
+    //- Блок dashed-line
+    +ui-kit-dashed-line
+  
+
+    //- Блок tabs
+    +ui-kit-tabs
+  
+
+    //- Блок range
+    +ui-kit-range
+  
+
+    //- Блок triangles
+    +ui-kit-triangles
+  
+
+    //- Блок modal
+    +ui-kit-modal
+  

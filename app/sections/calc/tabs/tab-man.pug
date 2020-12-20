@@ -1,0 +1,51 @@
++tab-wrapper()(data-tab="calc-tab-3" data-tab-group="calcTabs" data-calc-store="man").calc__slide
+	+e('ul').list--min
+		+e('li').item(data-range-wrapper="", class="--max")
+			+e.header
+				span.calc__subtitle Кол-во часов рабочего дня
+				span.calc__accent(data-range-counter="")
+
+			+range(
+				data-start="8" 
+				data-min="2"
+				data-max="24"
+				data-step="2"
+				data-range-type="hours"
+			)
+		
+		+e('li').item(data-range-wrapper="", class="--max")
+			+e.header
+				span.calc__subtitle Кол-во рабочих дней в месяц
+				span.calc__accent(data-range-counter="")
+
+			+range(
+				data-start="25" 
+				data-min="5"
+				data-max="31"
+				data-step="1"
+				data-range-type="days"
+			)
+		
+		+e('li').item(data-range-wrapper="", class="--max")
+			+e.header
+				span.calc__subtitle Разработка скрипта
+
+			+switch()(
+				data-calc-switch=""
+				data-switch-before="Нет", 
+				data-switch-after="Да",
+				data-false-value="0",
+				data-true-value="2500",
+				data-switch-type="script"
+			)
+		
+	+e.bottom
+		+e('p').text--max--md Прогнозируемая стоимость
+		+e('p').price
+			+e('span')(data-calc-output="man").price-numb 0
+			|  ₽
+			+e('sup').price-symb *
+
+	+e.img-wrapper
+		+img(src="calc/woman.png", webp).img
+

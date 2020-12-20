@@ -1,0 +1,22 @@
+mixin main-offers()
+  +b.main-offers&attributes(attributes)
+    +e('ul').list
+      each item in getData('main').offers
+        +e('li')(class=`item--theme--${item.color}`)
+          +e('p').text #{item.text}
+    
+mixin ui-kit-main-offers()
+  +ui-section
+    +ui-section-head
+      +ui-title Блок main-offers
+      +ui-path
+        p Блок: blocks/main-offers/main-offers
+      +ui-description
+        p Описание Блока
+  
+    +ui-section-content()
+      +main-offers
+      
+    //- При +ui-section-content(true) контейнер отсутствует
+    //- Для перечисления инлайновых блоков используется миксин +ui-elements-list()
+    //- Рамка вокруг особой секции: +ui-special()

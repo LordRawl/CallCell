@@ -1,0 +1,49 @@
+$bg-icon: #E4E4E4
+
+.checkbox
+	position: relative
+	display: inline-flex
+	align-items: center
+	cursor: pointer
+	$c: &
+
+	> * + *
+		margin-left: rem(10px)
+		 
+	&__box
+		border-radius: 3px
+		background-color: $bg-icon
+		display: flex
+		align-items: center
+		justify-content: center
+		flex-shrink: 0
+	
+		#{$c}--size--xl &
+			+size(rem(20px))
+			
+		#{$c}--size--md &
+			+size(rem(12px))
+
+	&__icon
+		fill: none
+		stroke: $color-main
+		stroke-linecap: round
+		stroke-linejoin: round
+		stroke-width: 2.5px
+		transition: 0s
+		opacity: 0
+		stroke-dasharray: 0 20
+
+		#{$c}--size--xl &
+			+size(rem(11px),rem(12px))
+
+		#{$c}--size--md &
+			+size(rem(9px),rem(10px))
+		
+		#{$c}--active &
+			transition: stroke-dasharray 0.3s
+			stroke-dasharray: 20 20
+			opacity: 1
+
+
+		

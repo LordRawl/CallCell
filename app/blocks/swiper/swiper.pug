@@ -1,0 +1,32 @@
+mixin swiper()
+	+b.swiper&attributes(attributes)
+		block
+
+mixin swiperButton(direction)
+	-
+		var direction = direction 
+			? direction == 'prev' 
+				? 'swiper__button-prev' 
+				: 'swiper__button-next' 
+			: ''
+
+	button(type="button" class=direction).swiper__button&attributes(attributes)
+		.swiper__icon-wrapper
+			+icon('right-arrow', true).swiper__icon
+
+		
+mixin ui-kit-swiper()
+	+ui-section
+		+ui-section-head
+			+ui-title Блок swiper
+			+ui-path
+				p Блок: blocks/swiper/swiper
+			+ui-description
+				p Описание Блока
+	
+		+ui-section-content()
+			+swiper
+			
+		//- При +ui-section-content(true) контейнер отсутствует
+		//- Для перечисления инлайновых блоков используется миксин +ui-elements-list()
+		//- Рамка вокруг особой секции: +ui-special()

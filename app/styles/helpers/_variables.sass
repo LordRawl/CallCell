@@ -1,0 +1,83 @@
+
+// ##########
+// Глобальные css переменные
+// ##########
+
+\:root
+	--text-main-bold: #000
+
+// ##########
+// Базовый размер шрифта
+// ##########
+
+$base-font-size: 16px
+
+// ##########
+// Базовые настройки сетки сайта
+// ##########
+
+$container-width: 1200px // Максимальная ширина контейнера контента
+$container-padding: 15px // Отступы слева и справа у контейнера
+$grid-container-width: 100% // Ширина контейнера сетки
+$grid-cols: 12 // Количество колонок в сетке
+$grid-gap: 20px // Расстояние между колонками
+$grid-gap-vertical: 20px // Расстояние между строками в сетке
+$breakpoints: ('xl': 1920px, 'lg': 1200px, 'md': 960px, 'sm': 640px, 'xs': 480px)
+
+// ##########
+// Цвета
+// ##########
+
+$color-placeholder: #777 // Основной цвет для placeholder
+$color-main: #6374FF // Основной фирменный цвет
+$color-second: #FF533D
+$color-second-light: #FF5F4A
+$color-third: #FFD240 
+$color-border: #EBECF2 // Основной цвет границ таблиц, секций
+$color-text-main: #292929 // Основной цвет текста
+$color-text-light: #FFF
+$color-text-second: #757575
+$color-text-gray: #CCC
+$color-basic: $color-text-main // Основной цвет текста (применяется к body)
+$color-input: black // Основной цвет input, select и textarea
+
+$color-error: $color-second
+$color-main-gray: #C4C4C4
+$color-second-gray: #A8A8A8
+
+$bg-basic: #fff
+$bg-second: #F6F6F6
+
+// ##########
+// Массив цветов для UI-кита
+// ##########
+
+$colors: ('$color-basic': black, '$color-placeholder': #777, '$color-input': black, '$color-main': #2252d8, '$color-border': #ccc)
+$colors: ('$color-basic': $color-basic)
+$colors: map-merge($colors, ('$color-placeholder': $color-placeholder))
+$colors: map-merge($colors, ('$color-input': $color-input))
+$colors: map-merge($colors, ('$color-main': $color-main))
+$colors: map-merge($colors, ('$color-border': $color-border))
+
+// ##########
+// Transitions
+// ##########
+
+$ease-main: .3s ease
+
+// ##########
+// Шрифты
+// ##########
+
+$font-main: OpenSans, Arial, sans-serif // Основной шрифт сайта
+$font-second: Exo2, Times New Roman, sans-serif // Дополнительный шрифт
+$font-input: $font-main
+
+// ##########
+// Цвета для UI-кита 
+// ##########
+
+$ui-kit-bg: white // Фон кита
+$ui-kit-color-text: black // Цвет текста
+$ui-kit-color-gray: #ccc // Цвет границ
+$ui-kit-color-darkbg: #111 // Фон темной секции

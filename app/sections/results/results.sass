@@ -1,0 +1,186 @@
+.results
+  background-color: $color-main
+  padding: rem(100px) 0 rem(145px)
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 39.69 80.13'%3E%3Cpath d='M39.69.89V0H0V80.13H39.69v-.9h-19V60.32h19v-.9h-19V40.5h19v-.89h-19V20.7h19v-.89h-19V.89ZM19.81,79.23H.89V60.32H19.81Zm0-19.81H.89V40.5H19.81Zm0-19.8H.89V20.7H19.81Zm0-19.81H.89V.89H19.81Z' fill='%23fff' /%3E%3C/svg%3E")
+  background-position: bottom center
+  background-repeat: repeat-x
+  background-size: 40px 80px
+  position: relative
+
+  &::before
+    content: ''
+    position: absolute
+    bottom: 100%
+    left: 0
+    display: block
+    +bg('results/results-bg-top.svg', $position: center bottom, $size: rem(900px) 100%, $repeat: repeat-x)
+    +size(100%, rem(50px))
+
+  &__content
+    text-align: center
+    position: relative
+
+  &__title
+    color: $color-text-light
+
+  &__subtitle
+    color: $color-text-light
+    @extend %text-18
+    margin-top: rem(20px)
+
+  &__slider
+    margin-top: rem(50px)
+  
+  &__palm-wrapper
+    position: absolute
+    bottom: - rem(40px)
+
+    &--left
+      right: 100%
+      transform: translateX(- rem(100px)) 
+
+    &--right
+      left: 100%
+      transform: translateX(rem(100px)) scaleX(-1)
+
+  &__palm
+    fill: none
+    stroke: $color-text-light
+    +size(rem(222px), rem(380px))
+
+    &-leaflet
+      stroke-dasharray: 0 380
+      // transition: 1s ease
+
+      // @for $i from 1 through 5
+      //   &:nth-child(#{$i})
+      //     transition-delay: 1s + $i * 0.5s
+
+      // .-animate- &
+      //   stroke-dasharray: 380 380
+
+    &-stem
+      stroke-dasharray: 0 440
+      // transition: 0.5s ease-in
+      // transition-delay: 1s
+    
+      // .-animate- &
+      //   stroke-dasharray: 440 440
+  
+  &__ribbon-wrapper
+    position: absolute
+    left: 100%
+    top: rem(50px)
+    transform: translateX(rem(100px))
+
+  &__ribbon
+    +size(142px, 78px)
+    fill: none
+    stroke: $color-third
+    stroke-width: 3px
+    stroke-dasharray: 0 380
+    
+
+.results-slider
+  padding-top: 30px
+
+  &__list
+
+  &__item
+    background-color: $bg-basic
+    height: auto
+    padding: rem(30px) rem(40px)
+    border-radius: 5px
+
+  &__icon-wrapper
+    +size(rem(120px), rem(125px))
+    display: flex
+    align-items: center
+    justify-content: center
+    margin: - rem(60px) auto 0
+    position: relative
+    z-index: 1
+    $custom-border-radius: 56% 44% 33% 67% / 38% 67% 33% 62% 
+
+    &::before, &::after
+      content: ''
+      position: absolute
+      z-index: -1
+      border-radius: $custom-border-radius
+      display: block
+      +size(100%)
+
+    &::before
+      left: - rem(10px)
+      background: $color-third
+
+    &::after
+      border: 2px solid black
+      background: $bg-basic
+
+  &__icon
+    +size(rem(50px))
+
+  &__title
+    @extend %text-24
+    font-family: $font-second
+    text-align: center
+    margin-top: rem(15px)
+
+  &__sublist
+    text-align: left
+    margin-top: rem(35px)
+
+    > * + *
+      margin-top: rem(10px)
+
+  &__subitem
+    @extend %text-14
+
+  &__name
+    color: $color-text-second
+
+  &__text
+    color: $color-text-main
+    font-weight: 700
+
+  &__bottom
+    margin-top: rem(30px)
+
+  &__link
+    font-family: $font-second
+    @extend %text-24
+    color: $color-main
+    padding-bottom: 5px
+    position: relative
+
+    &:hover::after
+      transform: scaleX(0)
+
+    &::after
+      content: ''
+      position: absolute
+      bottom: 0
+      left: 0
+      +size(100%, 2px)
+      background-color: $color-second
+      display: block
+      transition: $ease-main
+
+  &__buttons
+    margin-top: rem(30px)
+    display: flex
+    align-items: center
+    justify-content: center
+
+    > * + *
+      margin-left: rem(50px)
+
+  &__button
+
+  &__paginations
+
+    .-active-
+      background-color: $color-third
+
+  
