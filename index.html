@@ -28,9 +28,14 @@
 			<header class="header">
 				<div class="container">
 					<div class="header__content">
-						<div class="logo header__logo">
-							<span>Call</span>
-							<span class="color--second">Cell</span>
+						<div class="header__block">
+							<div class="toggle header__toggle" data-menu-toggle="data-menu-toggle">
+								<span class="toggle__line"></span>
+							</div>
+							<div class="logo header__logo">
+								<span>Call</span>
+								<span class="color--second">Cell</span>
+							</div>
 						</div>
 						<div class="header__navbar">
 							<ul class="header__list">
@@ -1357,7 +1362,7 @@
 		<script>
 			document.addEventListener('DOMContentLoaded', () =>
 			{
-				if (window.innerWidth > window.globalOptions.sizes.sm)
+				if (window.innerWidth > window.globalOptions.sizes.md)
 				{
 					var script = document.createElement('script')
 					script.src = 'assets/scripts/animation.min.js'
