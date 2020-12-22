@@ -97,6 +97,15 @@
 			<section class="main">
 				<div class="container">
 					<div class="main__wrapper">
+						<div class="main__img-wrapper">
+							<picture class="main__img">
+								<source type="image/webp" srcset="assets/images/main/main-img.webp" />
+								<img src="assets/images/main/main-img.jpg" alt="Девушка оператор перед экраном компьютера" width="601" height="543" />
+							</picture>
+							<div class="main__anim">
+								<span class="main__anim-text" data-animation-text="[&quot;Добрый вечер!&quot;, &quot;Компания CallCell&quot;, &quot;Чем могу вам помочь?&quot;]"></span>
+							</div>
+						</div>
 						<div class="main__content">
 							<div class="main-offers">
 								<ul class="main-offers__list">
@@ -139,9 +148,12 @@
 								</div>
 								<div class="main-present__text">Узнайте 10 преимуществ колл-центра перед наемным сотрудником прямо сейчас</div>
 								<div class="main-present__arrow-wrapper">
-									<svg class="main-present__arrow" viewBox="0 0 173.93 166.03" fill="none" stroke="black">
+									<svg class="main-present__arrow main-present__arrow--desktop" viewBox="0 0 173.93 166.03" fill="none" stroke="black">
 										<path class="main-present__arrow-line" d="M172.53.5c4.94,20.54-11,52.32-33.56,70.89-37,30.46-76.49,42.94-69,82.15,3.45,18.17,43.57,17.36,38.36-14-2.32-14-24.66-34.15-59.56-23.41C26.9,122.79,18.83,129.44,1,131.61" stroke-linecap="round"></path>
 										<polyline class="main-present__arrow-pike" points="6.78 134.23 0.99 131.61 5.46 128.39"></polyline>
+									</svg>
+									<svg class="main-present__arrow main-present__arrow--tablet" viewBox="0 0 19 70" fill="black">
+										<path class="main-present__arrow-line" d="M18.39 32.86a55.93 55.93 0 0 0-6.53-17.78 73 73 0 0 0-5.93-9c-1.36-1.73-2.81-3.42-4.33-5.08 2.12.54 4.24 1.11 6.32 1.73l.18-.57c-2.38-.68-4.81-1.34-7.23-1.94l-.06-.07-.05.04-.21-.05-.55-.14.17.51a27.49 27.49 0 0 1 1.25 5.71l.63-.06a27.77 27.77 0 0 0-1-4.83 72.82 72.82 0 0 1 10.23 14c14 25 4.73 44.84-7.48 54.17l.39.47a37.59 37.59 0 0 0 13.9-21.73 40.22 40.22 0 0 0 .3-15.38z"></path>
 									</svg>
 								</div>
 							</div>
@@ -153,20 +165,11 @@
 								</button>
 							</div>
 						</div>
-						<div class="main__img-wrapper">
-							<picture class="main__img">
-								<source type="image/webp" srcset="assets/images/main/main-img.webp" />
-								<img src="assets/images/main/main-img.jpg" alt="Девушка оператор перед экраном компьютера" width="601" height="543" />
-							</picture>
-							<div class="main__anim">
-								<span class="main__anim-text" data-animation-text="[&quot;Добрый вечер!&quot;, &quot;Компания CallCell&quot;, &quot;Чем могу вам помочь?&quot;]"></span>
-							</div>
-						</div>
-						<svg class="main__infinite" viewBox="0 0 122.29 95.4">
-							<path d="M81.7,46.92C94.42,41.46,106,33.64,115.62,20c6.31-10.59,7.42-18.52,3-19-9.73.76-44.79,66.61-75,85C10,110.84-13.35,73.57,11.17,62.8,25.53,54.39,54.16,59.87,81.7,46.92Z" stroke-linecap="round" stroke-linejoin="round"></path>
-						</svg>
 					</div>
 				</div>
+				<svg class="main__infinite" viewBox="0 0 122.29 95.4">
+					<path d="M81.7,46.92C94.42,41.46,106,33.64,115.62,20c6.31-10.59,7.42-18.52,3-19-9.73.76-44.79,66.61-75,85C10,110.84-13.35,73.57,11.17,62.8,25.53,54.39,54.16,59.87,81.7,46.92Z" stroke-linecap="round" stroke-linejoin="round"></path>
+				</svg>
 				<div class="main-cloud">
 					<svg class="main-cloud__icon" viewBox="0 0 400 358">
 						<path d="M390.59 179.409c25.37-70.72-7.19-165.379-84.4-178.27-42.73-7.14-90.48 20.35-119.72 52.39-43.57 47.749-43.96 135.42-85.98 178.159-28.65 29.14-76.63 30.27-95.96 61.62-22.89 37.11 45.89 58.77 96.14 62.63 115 8.83 235.97-26.19 289.92-176.53z"></path>
@@ -292,7 +295,11 @@
 					<div class="office__content">
 						<div class="office__block">
 							<h2 class="office__title title">Личный кабинет с подробной статистикой </h2>
-							<p class="office__text office__text--mt--xl">Наблюдайте за процессом работы в режиме онлайн</p>
+							<picture class="office__monitor">
+								<source type="image/webp" srcset="assets/images/office/monitor.webp" />
+								<img src="assets/images/office/monitor.png" alt="График на мониторе компьютера" width="453" height="527" />
+							</picture>
+							<p class="office__text office__text--mt--xl">Наблюдайте за процессом работы в&nbsp;режиме онлайн</p>
 							<div class="office__list-wrapper">
 								<ul class="office__list">
 									<li class="office__item">
@@ -305,7 +312,7 @@
 										<p class="office__descr">Импорт и экспорт базы</p>
 									</li>
 									<li class="office__item">
-										<p class="office__descr">Корректировка скриптов в режиме онлайн</p>
+										<p class="office__descr">Корректировка скриптов в&nbsp;режиме онлайн</p>
 									</li>
 								</ul>
 								<div class="office__arrow-wrapper">
@@ -323,10 +330,6 @@
 								</button>
 							</div>
 						</div>
-						<picture class="office__monitor">
-							<source type="image/webp" srcset="assets/images/office/monitor.webp" />
-							<img src="assets/images/office/monitor.png" alt="График на мониторе компьютера" width="453" height="527" />
-						</picture>
 					</div>
 				</div>
 			</section>
@@ -369,7 +372,7 @@
 										</li>
 									</ul>
 									<div class="results-slider__bottom">
-										<button class="results-slider__link" type="button">Узнать как</button>
+										<a class="results-slider__link" gref="#">Узнать как</a>
 									</div>
 								</li>
 								<li class="results-slider__item swiper-slide">
@@ -402,7 +405,7 @@
 										</li>
 									</ul>
 									<div class="results-slider__bottom">
-										<button class="results-slider__link" type="button">Подробнее</button>
+										<a class="results-slider__link" gref="#">Подробнее</a>
 									</div>
 								</li>
 								<li class="results-slider__item swiper-slide">
@@ -435,7 +438,7 @@
 										</li>
 									</ul>
 									<div class="results-slider__bottom">
-										<button class="results-slider__link" type="button">Узнать как</button>
+										<a class="results-slider__link" gref="#">Узнать как</a>
 									</div>
 								</li>
 								<li class="results-slider__item swiper-slide">
@@ -468,7 +471,7 @@
 										</li>
 									</ul>
 									<div class="results-slider__bottom">
-										<button class="results-slider__link" type="button">Подробнее</button>
+										<a class="results-slider__link" gref="#">Подробнее</a>
 									</div>
 								</li>
 								<li class="results-slider__item swiper-slide">
@@ -501,7 +504,7 @@
 										</li>
 									</ul>
 									<div class="results-slider__bottom">
-										<button class="results-slider__link" type="button">Узнать как</button>
+										<a class="results-slider__link" gref="#">Узнать как</a>
 									</div>
 								</li>
 							</ul>
