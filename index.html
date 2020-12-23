@@ -559,20 +559,22 @@
 			<section class="calc">
 				<div class="container">
 					<div class="calc__content">
-						<h2 class="calc__title title fade-bottom">Настройка вашего колл-центра</h2>
-						<ul class="tabs calc__tabs fade-bottom">
-							<li class="tabs__item tabs__item--active tabs__item--min" data-tab-target="calc-tab-1">
-								<div class="tabs__text">Входящие звонки и&nbsp;обработка заявок</div>
-							</li>
-							<li class="tabs__item tabs__item--max" data-tab-target="calc-tab-2">
-								<div class="tabs__text">Телемаркетинг, лидогенерация и&nbsp;продажи</div>
-							</li>
-							<li class="tabs__item tabs__item--min" data-tab-target="calc-tab-3">
-								<div class="tabs__text">Выделенный личный менеджер</div>
-							</li>
-						</ul>
+						<h2 class="calc__title title fade-bottom">Настройка вашего <nobr>колл-центра</nobr>
+						</h2>
+						<div class="tabs__wrapper swiper-container calc__tabs fade-bottom">
+							<ul class="tabs swiper-wrapper">
+								<li class="tabs__item tabs__item--active tabs__item--min swiper-slide" data-tab-target="calc-tab-1">
+									<p class="tabs__text">Входящие звонки и&nbsp;обработка заявок</p>
+								</li>
+								<li class="tabs__item tabs__item--max swiper-slide" data-tab-target="calc-tab-2">
+									<p class="tabs__text">Телемаркетинг, лидогенерация и&nbsp;продажи</p>
+								</li>
+								<li class="tabs__item tabs__item--min swiper-slide" data-tab-target="calc-tab-3">
+									<p class="tabs__text">Выделенный личный менеджер</p>
+								</li>
+							</ul>
+						</div>
 						<div class="calc__wrapper fade-bottom">
-							<p class="calc__anno">*Не является офертой. Расчет является предварительным. </p>
 							<ul class="tabs-content calc__tabs-content">
 								<li class="tabs-content__wrapper tabs-content__wrapper--active calc__slide" data-tab-group="calcTabs" data-tab="calc-tab-1" data-calc-store="leads">
 									<ul class="calc__list">
@@ -597,7 +599,7 @@
 											</div>
 											<div class="range js-range" data-start="20" data-min="5" data-max="31" data-step="1" data-range-type="days"></div>
 										</li>
-										<li class="calc__item calc__item--min fade-bottom" data-range-wrapper="">
+										<li class="calc__item calc__item calc__item--mobile--oe calc__item--min fade-bottom" data-range-wrapper="">
 											<div class="calc__header">
 												<span class="calc__subtitle">Разработка скрипта</span>
 											</div>
@@ -610,12 +612,12 @@
 										<li class="calc__item calc__item--df calc__item--max fade-bottom" data-range-wrapper="">
 											<div class="calc__item-block calc__item-block--max" data-range-connect="time">
 												<div class="calc__header">
-													<span class="calc__subtitle">Средняя продолжительность разговора </span>
+													<span class="calc__subtitle">Среднее время разговора</span>
 													<span class="calc__accent" data-range-counter=""></span>
 												</div>
 												<div class="range js-range" data-start="10" data-min="1" data-max="60" data-step="1" data-steps="{&quot;50%&quot;:[10, 5]}" data-range-type="time"></div>
 											</div>
-											<div class="calc__item-block">
+											<div class="calc__item-block calc__item-block--mobile--posa">
 												<label class="checkbox checkbox--size--xl" data-calc-checkbox="" data-false-value="0" data-true-value="3" data-checkbox-type="time">
 													<span class="checkbox__box">
 														<svg class="checkbox__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.5 11.5">
@@ -626,13 +628,13 @@
 												</label>
 											</div>
 										</li>
-										<li class="calc__item calc__item--df calc__item--max fade-bottom" data-range-wrapper="">
+										<li class="calc__item calc__item--df calc__item calc__item--ais calc__item calc__item--mobile--oe calc__item--max fade-bottom" data-range-wrapper="">
 											<div class="calc__item-block">
 												<div class="calc__header">
 													<span class="calc__subtitle">Работа в</span>
 												</div>
 											</div>
-											<div class="calc__item-block">
+											<div class="calc__checkboxes">
 												<label class="checkbox checkbox--size--xl" data-calc-checkbox="" data-false-value="0" data-true-value="1" data-checkbox-type="crm">
 													<span class="checkbox__box">
 														<svg class="checkbox__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.5 11.5">
@@ -641,8 +643,6 @@
 													</span>
 													<p class="calc__checkbox-text calc__checkbox-text--bold">CRM</p>
 												</label>
-											</div>
-											<div class="calc__item-block">
 												<label class="checkbox checkbox--size--xl" data-calc-checkbox="" data-false-value="0" data-true-value="1" data-checkbox-type="messangers">
 													<span class="checkbox__box">
 														<svg class="checkbox__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.5 11.5">
@@ -651,8 +651,6 @@
 													</span>
 													<p class="calc__checkbox-text calc__checkbox-text--bold">Мессенджерах</p>
 												</label>
-											</div>
-											<div class="calc__item-block">
 												<label class="checkbox checkbox--size--xl" data-calc-checkbox="" data-false-value="0" data-true-value="1" data-checkbox-type="letters">
 													<span class="checkbox__box">
 														<svg class="checkbox__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.5 11.5">
@@ -664,7 +662,7 @@
 											</div>
 										</li>
 									</ul>
-									<div class="calc__bottom fade-bottom">
+									<div class="calc__bottom fade-bottom" data-calc-wrapper="leads">
 										<p class="calc__text calc__text--max--md">Прогнозируемая стоимость</p>
 										<p class="calc__price">
 											<span class="calc__price-numb" data-calc-output="leads">0</span> ₽<sup class="calc__price-symb">*</sup>
@@ -673,6 +671,7 @@
 											<path class="calc__arrow-line" d="M.33,47.37C15.89,60.88,31.11,63.62,51.14,62.59c27.92-.9,40.53-13.52,74.17-17.86C157,43.4,166.79,66.15,153.19,77.81c-16.73,12.29-39.69-9.18-29.13-35.09,9.57-20.15,27.24-23,47.17-41.46"></path>
 											<polyline class="calc__arrow-pike" points="167.59 1.89 171.74 0.72 170.55 4.85"></polyline>
 										</svg>
+										<p class="calc__anno">*Не является офертой. Расчет является предварительным. </p>
 									</div>
 								</li>
 								<li class="tabs-content__wrapper calc__slide" data-tab-group="calcTabs" data-tab="calc-tab-2" data-calc-store="sales">
@@ -684,7 +683,7 @@
 											</div>
 											<div class="range js-range" data-start="3000" data-min="100" data-max="10000" data-step="100" data-steps="{&quot;30%&quot;:[500, 500]}" data-range-type="contacts"></div>
 										</li>
-										<li class="calc__item calc__item--min" data-range-wrapper="">
+										<li class="calc__item calc__item calc__item--mobile--oe calc__item--min" data-range-wrapper="">
 											<div class="calc__header">
 												<span class="calc__subtitle">Разработка скрипта</span>
 											</div>
@@ -694,7 +693,7 @@
 												</span>
 											</label>
 										</li>
-										<li class="calc__item calc__item--df calc__item calc__item--aie calc__item--max" data-range-wrapper="">
+										<li class="calc__item calc__item--df calc__item calc__item--aie calc__item calc__item--mobile--fdc calc__item--max" data-range-wrapper="">
 											<div class="calc__item-block calc__item-block--max">
 												<div class="calc__header">
 													<span class="calc__subtitle">Ваш клиент</span>
@@ -713,17 +712,17 @@
 															<path class="icon-line" d="M1.25 3.48l2.2 6.77c1.5-3.41 3-6.51 5.8-9"></path>
 														</svg>
 													</span>
-													<p class="calc__checkbox-text calc__checkbox-text--normal">Выходим на лицо принимающее решение (ЛПР)</p>
+													<p class="calc__checkbox-text calc__checkbox-text--normal">Выходим на лицо принимающее решение&nbsp;(ЛПР)</p>
 												</label>
 											</div>
 										</li>
-										<li class="calc__item calc__item--df calc__item--max" data-range-wrapper="">
+										<li class="calc__item calc__item--df calc__item calc__item--ais calc__item calc__item--mobile--oe calc__item--max" data-range-wrapper="">
 											<div class="calc__item-block">
 												<div class="calc__header">
 													<span class="calc__subtitle">Работа в</span>
 												</div>
 											</div>
-											<div class="calc__item-block">
+											<div class="calc__checkboxes">
 												<label class="checkbox checkbox--size--xl" data-calc-checkbox="" data-false-value="0" data-true-value="5" data-checkbox-type="crm">
 													<span class="checkbox__box">
 														<svg class="checkbox__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.5 11.5">
@@ -732,8 +731,6 @@
 													</span>
 													<p class="calc__checkbox-text calc__checkbox-text--bold">CRM</p>
 												</label>
-											</div>
-											<div class="calc__item-block">
 												<label class="checkbox checkbox--size--xl" data-calc-checkbox="" data-false-value="0" data-true-value="4" data-checkbox-type="messangers">
 													<span class="checkbox__box">
 														<svg class="checkbox__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.5 11.5">
@@ -742,8 +739,6 @@
 													</span>
 													<p class="calc__checkbox-text calc__checkbox-text--bold">Мессенджерах</p>
 												</label>
-											</div>
-											<div class="calc__item-block">
 												<label class="checkbox checkbox--size--xl" data-calc-checkbox="" data-false-value="0" data-true-value="4" data-checkbox-type="letters">
 													<span class="checkbox__box">
 														<svg class="checkbox__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.5 11.5">
@@ -764,9 +759,10 @@
 											<path class="calc__arrow-line" d="M.33,47.37C15.89,60.88,31.11,63.62,51.14,62.59c27.92-.9,40.53-13.52,74.17-17.86C157,43.4,166.79,66.15,153.19,77.81c-16.73,12.29-39.69-9.18-29.13-35.09,9.57-20.15,27.24-23,47.17-41.46"></path>
 											<polyline class="calc__arrow-pike" points="167.59 1.89 171.74 0.72 170.55 4.85"></polyline>
 										</svg>
+										<p class="calc__anno">*Не является офертой. Расчет является предварительным. </p>
 									</div>
 								</li>
-								<li class="tabs-content__wrapper calc__slide" data-tab-group="calcTabs" data-tab="calc-tab-3" data-calc-store="man">
+								<li class="tabs-content__wrapper calc__slide calc__slide--mobile--pb" data-tab-group="calcTabs" data-tab="calc-tab-3" data-calc-store="man">
 									<ul class="calc__list calc__list--min">
 										<li class="calc__item calc__item--max" data-range-wrapper="">
 											<div class="calc__header">
@@ -798,10 +794,13 @@
 										<p class="calc__price">
 											<span class="calc__price-numb" data-calc-output="man">0</span> ₽<sup class="calc__price-symb">*</sup>
 										</p>
+										<p class="calc__anno">*Не является офертой. Расчет является предварительным. </p>
 									</div>
 									<div class="calc__img-wrapper">
 										<picture class="calc__img">
+											<source type="image/webp" data-srcset="assets/images/calc/woman_mobile.webp" media="(max-width: 480px)" />
 											<source type="image/webp" data-srcset="assets/images/calc/woman.webp" />
+											<source data-srcset="assets/images/calc/woman_mobile.png" media="(max-width: 480px)" />
 											<img class="lazy" data-src="assets/images/calc/woman.png" alt="Девушка с планшетом" width="411" height="594" />
 										</picture>
 									</div>
@@ -900,7 +899,7 @@
 									<p class="stages__text">Всегда на связи с вами для получения максимального результата</p>
 								</li>
 							</ul>
-							<svg class='stages__line' viewBox='0 0 1003 348'>
+							<svg class='stages__line' preserveAspectRatio='none' viewBox='0 0 1003 348'>
 								<line x1='1.5' y1='198.78' x2='11.3' y2='190.31' />
 								<line x1='19.9' y1='182.84' x2='29.69' y2='174.73' />
 								<line x1='38.01' y1='167.44' x2='47.97' y2='159.66' />
@@ -974,6 +973,7 @@
 								<line x1='998.82' y1='242.22' x2='995.16' y2='253.7' />
 								<line x1='989.99' y1='264.42' x2='982.75' y2='274.29' />
 							</svg>
+							<img class="stages__line-mobile lazy" data-src="assets/images/stages/stages-line-mobile.svg" alt="Пунктирная линия" width="154" height="637" title="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
 						</div>
 						<svg class="stages__infinite" viewBox="0 0 147 82">
 							<path d="M38.07 68.32c7.08 7.19 17.71 13.11 30.55 12.68 39.61-1.63 75.45-40.83 77.31-61 1.23-14.88-13.12-23.46-20.85-16.6-22.7 18.6-33.98 45.76-55.68 55.34-19.15 10.07-35.78 12.63-53.11 4.57-9.65-4.48-15.66-11.23-15.29-19.87 1.51-6.15 5.79-7.36 9.71-6.29 9.22 2.85 15.81 19.08 27.36 31.17z" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -1228,8 +1228,8 @@
 										<path class="questions__arrow-pike" d="M88.13,10.42a52.37,52.37,0,0,1,8.34-1.66L89.88.31"></path>
 									</svg>
 								</div>
-								<p class="questions__name"></p>
-								<p class="questions__descr"></p>
+								<p class="questions__name" data-text="Лера Козлова"></p>
+								<p class="questions__descr" data-text="Руководитель CallCell"></p>
 							</div>
 						</div>
 						<svg class="triangles questions__triangles fade" viewBox="0 0 148.96 471.45">
