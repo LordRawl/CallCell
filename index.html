@@ -32,26 +32,26 @@
 							<div class="toggle header__toggle" data-menu-toggle="data-menu-toggle">
 								<span class="toggle__line"></span>
 							</div>
-							<div class="logo header__logo">
+							<a class="logo header__logo" href="/">
 								<span>Call</span>
 								<span class="color--second">Cell</span>
-							</div>
+							</a>
 						</div>
 						<div class="header__navbar">
 							<ul class="header__list">
 								<li class="header__item">
 									<span class="header__hover-border header__hover-border--first"></span>
-									<a class="header__link js-anchor" href=".services">Услуги</a>
+									<a class="header__link js-anchor" href="#services">Услуги</a>
 									<span class="header__hover-border header__hover-border--last"></span>
 								</li>
 								<li class="header__item">
 									<span class="header__hover-border header__hover-border--first"></span>
-									<a class="header__link js-anchor" href=".calc">Тарифы</a>
+									<a class="header__link js-anchor" href="#calc">Тарифы</a>
 									<span class="header__hover-border header__hover-border--last"></span>
 								</li>
 								<li class="header__item">
 									<span class="header__hover-border header__hover-border--first"></span>
-									<a class="header__link js-anchor" href=".office">Технологии IS</a>
+									<a class="header__link js-anchor" href="#office">Технологии IS</a>
 									<span class="header__hover-border header__hover-border--last"></span>
 								</li>
 								<li class="header__item">
@@ -61,7 +61,7 @@
 								</li>
 								<li class="header__item">
 									<span class="header__hover-border header__hover-border--first"></span>
-									<a class="header__link js-anchor" href=".blog">Блог</a>
+									<a class="header__link js-anchor" href="#blog">Блог</a>
 									<span class="header__hover-border header__hover-border--last"></span>
 								</li>
 							</ul>
@@ -184,7 +184,7 @@
 			</section>
 			<!--end main-->
 			<!--begin services-->
-			<section class="services">
+			<section class="services" id="services">
 				<div class="container">
 					<div class="services__content">
 						<h2 class="services__title title fade-bottom">Выполним ваши задачи по звонкам и продажам</h2>
@@ -290,7 +290,7 @@
 			</section>
 			<!--end services-->
 			<!--begin office-->
-			<section class="office">
+			<section class="office" id="office">
 				<div class="container">
 					<div class="office__content">
 						<div class="office__block">
@@ -556,7 +556,7 @@
 			</section>
 			<!--end results-->
 			<!--begin calc-->
-			<section class="calc">
+			<section class="calc" id="calc">
 				<div class="container">
 					<div class="calc__content">
 						<h2 class="calc__title title fade-bottom">Настройка вашего <nobr>колл-центра</nobr>
@@ -1052,7 +1052,7 @@
 			</section>
 			<!--end audit-->
 			<!--begin blog-->
-			<section class="blog">
+			<section class="blog" id="blog">
 				<div class="container">
 					<div class="blog__content">
 						<h2 class="blog__title title fade-bottom">Читайте наш блог</h2>
@@ -1250,10 +1250,10 @@
 				<div class="footer__top">
 					<div class="container">
 						<div class="footer__content">
-							<div class="logo footer__logo">
+							<a class="logo footer__logo" href="/">
 								<span>Call</span>
 								<span class="color--second">Cell</span>
-							</div>
+							</a>
 							<ul class="footer__list">
 								<li class="footer__item">
 									<div class="footer__wrapper">
@@ -1420,6 +1420,7 @@
 				{
 					var script = document.createElement('script')
 					script.src = 'assets/scripts/animation.min.js'
+					script.setAttribute('async', true)
 					document.body.append(script)
 				}
 			});
