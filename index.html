@@ -248,7 +248,7 @@
 						</div>
 						<div class="swiper__paginations services-slider__paginations fade-bottom"></div>
 						<div class="services__bottom fade-bottom">
-							<button class="button button--size--xl services__button" type="button" data-modal-target="present">
+							<button class="button button--size--xl services__button" type="button" data-modal-target="price">
 								<div class="button__block">
 									<span class="button__text">Заказать услугу</span>
 								</div>
@@ -323,7 +323,7 @@
 								</div>
 							</div>
 							<div class="office__bottom">
-								<button class="button button--size--xl office__button">
+								<button class="button button--size--xl office__button" type="button" data-modal-target="price">
 									<div class="button__block">
 										<span class="button__text">Подробнее о кабинете</span>
 									</div>
@@ -1305,112 +1305,7 @@
 				</div>
 			</footer>
 			<!--end footer-->
-			<div class="modal">
-				<div class="modal__container" data-modal="logout">
-					<div class="modal__close" data-modal-close="">
-						<svg class="modal__close-icon">
-							<use xlink:href="assets/images/icon.svg#icon_close"></use>
-						</svg>
-					</div>
-					<div class="modal__content">
-						<div class="modal__img-wrapper">
-							<picture class="modal__img">
-								<source type="image/webp" data-srcset="assets/images/modal-bg.webp" />
-								<img class="lazy" data-src="assets/images/modal-bg.png" alt="Лера Козлова с подарками" width="610" height="585" />
-							</picture>
-						</div>
-						<form class="form form--theme--dark modal__form">
-							<h3 class="form__title modal__title">
-								<span class="color--main">Подождите! </span>Узнайте 10 преимуществ КЦ перед наёмным сотрудником
-							</h3>
-							<p class="form__subtitle">Оставьте свои контакты и мы отправим подробный чек-лист сравнения</p>
-							<div class="form-group" data-form-group="">
-								<label class="form-group__wrapper">
-									<p class="form-group__title">Контактный номер</p>
-									<input class="form-group__input" aria-label="Контактный номер" name="phone" type="text" />
-									<p class="form-group__error">Неверное значение</p>
-								</label>
-							</div>
-							<div class="form-group" data-form-group="">
-								<label class="form-group__wrapper">
-									<p class="form-group__title">Ваша почта</p>
-									<input class="form-group__input" aria-label="Ваша почта" name="email" type="text" />
-									<p class="form-group__error">Неверное значение</p>
-								</label>
-							</div>
-							<div class="form-group" data-form-group="">
-								<button class="button button--size--xl form-group__button" type="submit">
-									<div class="button__block">
-										<span class="button__text">Подробный расчет</span>
-									</div>
-								</button>
-							</div>
-							<div class="form__accept">
-								<label class="checkbox checkbox--size--md" data-form-checkbox="" data-checkbox-type="accept">
-									<span class="checkbox__box">
-										<svg class="checkbox__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.5 11.5">
-											<path class="icon-line" d="M1.25 3.48l2.2 6.77c1.5-3.41 3-6.51 5.8-9"></path>
-										</svg>
-									</span>
-									<p class="form__accept-text">Я принимаю условия <a class="form__accept-link" href="#" target="_blank">передачи информации</a>
-									</p>
-								</label>
-							</div>
-						</form>
-					</div>
-				</div>
-				<div class="modal__container" data-modal="present">
-					<div class="modal__close" data-modal-close="">
-						<svg class="modal__close-icon">
-							<use xlink:href="assets/images/icon.svg#icon_close"></use>
-						</svg>
-					</div>
-					<div class="modal__content">
-						<div class="modal__img-wrapper">
-							<picture class="modal__img">
-								<source type="image/webp" data-srcset="assets/images/modal-bg.webp" />
-								<img class="lazy" data-src="assets/images/modal-bg.png" alt="Лера Козлова с подарками" width="610" height="585" />
-							</picture>
-						</div>
-						<form class="form form--theme--dark modal__form">
-							<h3 class="form__title modal__title">Узнайте 10 преимуществ КЦ перед наёмным сотрудником</h3>
-							<p class="form__subtitle">Оставьте свои контакты и мы отправим подробный чек-лист сравнения</p>
-							<div class="form-group" data-form-group="">
-								<label class="form-group__wrapper">
-									<p class="form-group__title">Контактный номер</p>
-									<input class="form-group__input" aria-label="Контактный номер" name="phone" type="text" />
-									<p class="form-group__error">Неверное значение</p>
-								</label>
-							</div>
-							<div class="form-group" data-form-group="">
-								<label class="form-group__wrapper">
-									<p class="form-group__title">Ваша почта</p>
-									<input class="form-group__input" aria-label="Ваша почта" name="email" type="text" />
-									<p class="form-group__error">Неверное значение</p>
-								</label>
-							</div>
-							<div class="form-group" data-form-group="">
-								<button class="button button--size--xl form-group__button" type="submit">
-									<div class="button__block">
-										<span class="button__text">Подробный расчет</span>
-									</div>
-								</button>
-							</div>
-							<div class="form__accept">
-								<label class="checkbox checkbox--size--md" data-form-checkbox="" data-checkbox-type="accept">
-									<span class="checkbox__box">
-										<svg class="checkbox__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.5 11.5">
-											<path class="icon-line" d="M1.25 3.48l2.2 6.77c1.5-3.41 3-6.51 5.8-9"></path>
-										</svg>
-									</span>
-									<p class="form__accept-text">Я принимаю условия <a class="form__accept-link" href="#" target="_blank">передачи информации</a>
-									</p>
-								</label>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
+			<div class="modal"></div>
 		</div>
 		<script src="assets/scripts/app.min.js"></script>
 		<script>
