@@ -3,12 +3,13 @@
   align-items: center
 
   > * + *
-    margin-left: 16px
+    margin-left: 1rem
 
   &__icon-wrapper
+    font-size: 0
 
   &__icon
-    +size(24px, 29px)
+    +size(rem(24px), rem(29px))
 
   &__icon-phone
     fill: $color-third
@@ -26,9 +27,9 @@
     font-size: rem(14px)
 
   &__phone
-    font-size: 20px
     font-family: $font-second
     font-weight: 700
+    @extend %text-18
 
     &:hover
       color: $color-main

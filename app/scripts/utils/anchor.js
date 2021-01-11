@@ -1,6 +1,8 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable no-debugger */
+import { toggleHeader, toggleMenu } from '@sections/header/header';
 // При клике на .js-anchor страница плавно скроллится к блоку, указанному в его href
-export default function anchor() {
+export default function anchorInit() {
 	function ease( t, b, c, d ) {
 		let a = t;
 		a /= d / 2;
@@ -11,6 +13,9 @@ export default function anchor() {
 
 	function scroll( currTarget, duration = 1000 ) {
 		const target = document.querySelector( currTarget );
+
+		if ( !target ) return;
+
 		const targetPosition = target.getBoundingClientRect().top;
 		const startPosition = window.pageYOffset;
 
@@ -31,13 +36,15 @@ export default function anchor() {
 	}
 
 	document.addEventListener( 'click', ( e ) => {
-		if ( e.target.closest( '.js-anchor' ) ) {
-			e.preventDefault();
+		const anchor = e.target.closest( '.js-anchor' );
 
-			const item = e.target.closest( '.js-anchor' );
-			const target = item.getAttribute( 'href' );
+		if ( !anchor ) return;
 
-			scroll( target, 1000 );
-		}
+		e.preventDefault();
+		const target = anchor.getAttribute( 'href' );
+
+		scroll( target, 1000 );
+		toggleHeader();
+		toggleMenu( true );
 	} );
 }

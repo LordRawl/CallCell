@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars */
 import Swiper from 'swiper';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 function _swiperInit() {
 	const swiper = document.querySelector( '.services-slider' );
@@ -9,8 +7,6 @@ function _swiperInit() {
 	if ( !swiper ) return;
 
 	const swiperOptions = {
-		slidesPerView: 3,
-		spaceBetween: 20,
 		navigation: {
 			nextEl: '.services-slider__button-next',
 			prevEl: '.services-slider__button-prev',
@@ -23,38 +19,23 @@ function _swiperInit() {
 			bulletClass: 'swiper__dot',
 		},
 		breakpoints: {
-			// 641: {
-			// 	slidesPerView: 3,
-			// 	spaceBetween: 20,
-			// 	// autoHeight: false,
-			// },
-			// 320: {
-			// 	slidesPerView: 1,
-			// 	spaceBetween: 20,
-			// 	// autoHeight: true,
-			// },
+			1200: {
+				slidesPerView: 3,
+				spaceBetween: 20,
+			},
+			640: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+			},
+			320: {
+				slidesPerView: 1,
+				spaceBetween: 20,
+			},
 		},
 	};
 	const Slider = new Swiper( '.services-slider', swiperOptions );
 }
 
-export default function services() {
+export default function servicesInit() {
 	_swiperInit();
-
-	gsap.registerPlugin( ScrollTrigger );
-
-	gsap.timeline( {
-		scrollTrigger: {
-			trigger: '.services__hand',
-			start: 'top bottom-=20%',
-		},
-	} )
-		.fromTo( '.services__hand-line', {
-			strokeDasharray: '0 900',
-		}, {
-			strokeDasharray: '900 900',
-			delay: 0.5,
-			duration: 2,
-			stagger: 0.2,
-		} );
 }

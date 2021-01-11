@@ -1,6 +1,6 @@
 mixin blog()
   <!--begin blog-->
-  +b('section').blog&attributes(attributes)
+  +b('section').blog#blog.fade&attributes(attributes)
     .container
       +e.content
         +e('h2').title.title.fade-bottom Читайте наш блог
@@ -14,14 +14,14 @@ mixin blog()
                     +e('h3').title !{item.title}
                       
                     +e('div').icon-wrapper
-                      +e('img')(src=`assets/images/blog/${item.icon}.svg`).icon
+                      +e('img')(data-src=`assets/images/blog/${item.icon}.svg`, width="150" height="150").icon.lazy
                   
                   +e.bottom
                     +e.date #{item.date}
 
                     +e.link 
                       +e('span').link-text Подробнее
-                      +icon('arrow-right').link-icon
+                      +icon('arrow-right').link-icon(width="21" height="7")
                 
         .swiper__buttons.blog-slider__buttons.fade-bottom
           +swiperButton('prev')(aria-label="Показать предыдущий слайд").blog-slider__button-prev

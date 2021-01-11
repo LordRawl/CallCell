@@ -1,6 +1,5 @@
 .services
 	background-color: $bg-second
-	padding: rem(100px) 0
 	position: relative
 	z-index: 2
 
@@ -10,10 +9,16 @@
 
 	&__title
 
+		+media(480px)
+			text-align: left
+
 	&__subtitle
 		@extend %text-18
 		color: $color-text-second
 		margin-top: rem(20px)
+		
+		+media(480px)
+			text-align: left
 	
 	&__slider
 		position: relative
@@ -32,26 +37,24 @@
 		top: 0
 		z-index: -1
 	
-	&__hand
+	&__hand-wrapper
 		position: absolute
 		bottom: 0
 		left: 50%
+		font-size: 0
 		transform: translateX(40%)
+
+	&__hand
 		+size(rem(354px), rem(150px))
 		fill: none
 		stroke: #000
 		stroke-width: 3px
 
+		+media(640px)
+			display: none
+
 		&-line
-			stroke-dasharray: 0 900
-			transition: 0s
-
-			.services__hand.-animate- &
-				transition: stroke-dasharray 2s linear
-				stroke-dasharray: 900 900
-
-				&:last-child
-					transition-delay: 0.5s
+			// stroke-dasharray: 0 900
 
 	&__triangles
 		+size(rem(150px), rem(470px))
@@ -73,6 +76,13 @@
 	margin: rem(70px) rem(70px) 0
 	position: relative
 
+	+media(960px)
+		margin: 4rem 1.5rem 0
+
+	+media(640px)
+		margin: 3rem auto 0
+		max-width: 26rem
+
 	&__list
 
 	&__item
@@ -90,11 +100,13 @@
 	&__image-wrapper
 		position: relative
 		margin: auto
-		+size(rem(200px), rem(150px))
 
 	&__image
-		+fill-img
+		+size(200px, 155px)
 		transition: transform $ease-main
+
+		+media(640px)
+			+size(175px, 135px)
 
 	&__heading
 		color: $color-text-main
@@ -103,6 +115,10 @@
 		font-weight: 700
 		margin-top: rem(25px)
 		line-height: 1.1
+
+		+media(480px)
+			font-size: 1.8rem
+			margin-top: 3rem
 
 	&__descr
 		@extend %text-16

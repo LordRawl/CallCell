@@ -6,6 +6,8 @@ $border-radius-button: 10px
 	align-items: center
 	justify-content: center
 	border: 0
+	font-family: $font-second
+	font-weight: 700
 	box-sizing: border-box
 	background-color: $color-second
 	transition: $ease-main
@@ -40,6 +42,16 @@ $border-radius-button: 10px
 		&--xl
 			font-size: 20px
 			padding: 1.25em 2.25em
+			min-width: 15rem
+
+			+media(640px)
+				font-size: 18px
+
+			+media(480px)
+				font-size: 16px
+				padding: 1.25em 1.75em
+				min-width: 23rem
+
 
 
 

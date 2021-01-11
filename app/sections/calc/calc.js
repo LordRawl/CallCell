@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-unresolved */
@@ -7,7 +8,6 @@ import './js-utils/calc-sales';
 import Switch from '@blocks/form/switch';
 import Checkbox from '@blocks/form/checkbox';
 import numberFormat from '../../scripts/utils/numberFormat';
-import _animation from './js-utils/calc-animation';
 
 const { STATE } = window;
 STATE.switchers = [];
@@ -68,7 +68,7 @@ function _rangesInit() {
 			const counter = range
 				.closest( '[data-range-wrapper]' )
 				.querySelector( '[data-range-counter]' );
-			const calcTarget = range.closest( '[data-calc-store]' ).dataset.calcStore;
+			const calcTarget = range.closest( '[data-tab]' ).dataset.tab;
 			const type = range.dataset.rangeType;
 
 			if ( STATE[calcTarget] ) {
@@ -81,7 +81,7 @@ function _rangesInit() {
 }
 
 function _setStoreSwitchValues( { element, value } ) {
-	const calcTarget = element.closest( '[data-calc-store]' ).dataset.calcStore;
+	const calcTarget = element.closest( '[data-tab]' ).dataset.tab;
 	const path = element.dataset.switchType;
 
 	if ( STATE[calcTarget] ) {
@@ -127,7 +127,7 @@ function _checkboxInit() {
 	checkboxes.forEach( ( checkbox ) => {
 		const el = new Checkbox( checkbox, {
 			onToggle( element, value, isActive ) {
-				const calcTarget = element.closest( '[data-calc-store]' ).dataset.calcStore;
+				const calcTarget = element.closest( '[data-tab]' ).dataset.tab;
 				const path = element.dataset.checkboxType;
 
 				if ( STATE[calcTarget] ) {
@@ -156,7 +156,7 @@ function _checkboxInit() {
 						rangeConnect.removeAttribute( 'disabled' );
 						/* Возвращаем значение из ренжа в калькулятор в стор */
 						const rangeVal = +rangeConnect.querySelector( '[aria-valuenow]' ).getAttribute( 'aria-valuenow' );
-						const rangeCalcTarget = rangeConnect.closest( '[data-calc-store]' ).dataset.calcStore;
+						const rangeCalcTarget = rangeConnect.closest( '[data-tab]' ).dataset.tab;
 						const { rangeType } = rangeConnect.querySelector( '[data-range-type]' ).dataset;
 
 						if ( STATE[rangeCalcTarget] ) {
@@ -171,12 +171,10 @@ function _checkboxInit() {
 	} );
 }
 
-export default function calcFunc() {
+export default function calcInit() {
 	_rangesInit();
 
 	_switchInit();
 
 	_checkboxInit();
-
-	_animation();
 }

@@ -92,47 +92,14 @@ const getFiles = ( blockPath ) => new Promise( ( resolve, reject ) => {
 } );
 
 const appendToIncludes = ( kind, blockName ) => {
-	const filePath =		kind === 'page'
-		? './app/pages/sitemap/sitemap.pug'
-		: './app/layouts/_internalIncludes.pug';
+	const filePath = './app/layouts/_internalIncludes.pug';
 
-	if ( ['section', 'block', 'page'].indexOf( kind ) === -1 ) {
+	if ( ['section', 'block'].indexOf( kind ) === -1 ) {
 		return;
 	}
 
 	const file = fs.readFileSync( filePath, 'utf8' );
-	const includeString =		kind === 'page'
-		? `\t\t\t\t+e.A.link(href="${blockName}.html") Страница ${blockName} (${blockName}.html)`
-		: `include ../${kind}s/${blockName}/${blockName}`;
-	const lines = file.split( /\n/ );
-
-	if ( lines.slice( -1 )[0].length < 1 ) {
-		lines.pop();
-	}
-
-	if ( lines.indexOf( includeString ) !== -1 ) {
-		return console.log(
-			`>>> ${kind} ${blockName} already included to '${filePath}'`,
-		);
-	}
-
-	lines.push( includeString );
-	const nextFile = lines.join( '\n' );
-	fs.writeFileSync( filePath, nextFile, 'utf8' );
-};
-
-const includeToUiKit = ( kind, blockName ) => {
-	const filePath = './app/pages/ui-kit/ui-kit.pug';
-
-	if ( ['block'].indexOf( kind ) === -1 ) {
-		return;
-	}
-
-	const file = fs.readFileSync( filePath, 'utf8' );
-	const includeString = `
-    //- ${'Блок'} ${blockName}
-    +ui-kit-${blockName}
-  `;
+	const includeString =	`include ../${kind}s/${blockName}/${blockName}`;
 	const lines = file.split( /\n/ );
 
 	if ( lines.slice( -1 )[0].length < 1 ) {
@@ -185,7 +152,6 @@ program
 
 		const blocks = await Promise.all( promises ).catch( printError );
 		blocks.forEach( ( block ) => appendToIncludes( block.kind, block.name ) );
-		blocks.forEach( ( block ) => includeToUiKit( block.kind, block.name ) );
 	} );
 
 program
@@ -201,7 +167,6 @@ program
 
 		const blocks = await Promise.all( promises ).catch( printError );
 		blocks.forEach( ( block ) => appendToIncludes( block.kind, block.name ) );
-		blocks.forEach( ( block ) => includeToUiKit( block.kind, block.name ) );
 	} );
 
 program

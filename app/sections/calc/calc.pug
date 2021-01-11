@@ -1,14 +1,12 @@
-- var tabsHeaderList = ['Входящие звонки и&nbsp;обработка заявок', 'Телемаркетинг, лидогенерация и&nbsp;продажи', 'Выделенный личный менеджер']
-
 mixin calc()
   <!--begin calc-->
-  +b('section').calc&attributes(attributes)
+  +b('section').calc#calc.fade&attributes(attributes)
     .container
       +e.content
-        +e('h2').title.title.fade-bottom Настройка вашего колл-центра
+        +e('h2').title.title.fade-bottom Настройка вашего <nobr>колл-центра</nobr>
         
         +tabs.__tabs.fade-bottom
-          each tab, idx in tabsHeaderList
+          each item, idx in getData('calc').tabs
             -
               var className = ''
               switch (idx) {
@@ -23,11 +21,10 @@ mixin calc()
                   break;
               }
 
-            +tab(data-tab-target=`calc-tab-${idx+1}` class=className)
-              +e.text !{tab}
+            +tab(data-tab-target=item.tab class=className).swiper-slide
+              +e('p').text !{item.tabName}
         
         +e.wrapper.fade-bottom
-          +e('p').anno *Не является офертой. Расчет является предварительным. 
           
           +tabs-content.calc__tabs-content
             include tabs/tab-leads
@@ -37,7 +34,7 @@ mixin calc()
             include tabs/tab-man
 
           
-          +form.--theme--dark.--bg.__form.fade-bottom
+          +form.--theme--dark.--bg.__form.fade-bottom(data-form="calc")
             +e('h3').title.fade-bottom Получите подробный расчёт стоимости
             +e('p').subtitle.fade-bottom Оставьте свои контакты, наш манеджер вам перезвонит, чтобы сделать подробный расчет вашего колл-центра 
 
@@ -59,7 +56,7 @@ mixin calc()
                   a(href="#" target="_blank").form__accept-link передачи информации
 
     +e.phone-wrapper
-      +e('img').phone(src="assets/images/calc/phone.svg" alt="Телефонная трубка")
+      +e('img').phone.lazy(data-src="assets/images/calc/phone.svg" alt="Телефонная трубка", width="350", height="520" )
       +e('svg').phone-beeps(viewBox="0 0 350 520")
         +e('path')(d="M155.47,60.25c11.22-.93,21.61-4.06,31.61-8.26,5.69-6.59,11.36-15.88,16.37-24.45l28,30.26,18.28-34,24,11.83").phone-beep
         +e('polyline')(points="166.84 69.11 190.62 76.12 204.15 59.08 236.23 79.13 265.67 63.87").phone-beep

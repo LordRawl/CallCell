@@ -14,19 +14,23 @@ head
   //- Описание страницы для соц сетей
   meta(property="og:description" content=pageOgDescription || '')
   //- Превью страницы для соц сетей
-  meta(property="og:image" content="http://"+site+"/assets/img/preview.jpg")
+  meta(property="og:image" content="http://"+site+"/assets/images/preview.jpg")
 
   meta(name='description' content=pageOgDescription || '')
   meta(name='keywords' content=pageOgKeywords || '')
   |
   |
   //- Путь до фавикона
-  link(rel="shortcut icon" href="assets/img/favicon/favicon.ico" type="image/x-icon") 
-  link(rel="apple-touch-icon" href="assets/img/favicon/apple-touch-icon.png")
-  link(rel="apple-touch-icon" sizes="72x72" href="assets/img/favicon/apple-touch-icon-72x72.png")
-  link(rel="apple-touch-icon" sizes="114x114" href="assets/img/favicon/apple-touch-icon-114x114.png")
+  link(rel="shortcut icon" href="assets/images/favicon/favicon.ico" type="image/x-icon") 
+  link(rel="apple-touch-icon" href="assets/images/favicon/apple-touch-icon.png")
+  link(rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon/apple-touch-icon-72x72.png")
+  link(rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-touch-icon-114x114.png")
   |
   |
+  link(rel="preload" href="assets/fonts/Exo2-Bold.woff2" as="font" type="font/woff2" crossorigin)
+  link(rel="preload" href="assets/fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin)
+  link(rel="preload" href="assets/fonts/OpenSans-SemiBold.woff2" as="font" type="font/woff2" crossorigin)
+  link(rel="preload" href="assets/fonts/OpenSans-Bold.woff2" as="font" type="font/woff2" crossorigin)
   link(href='assets/styles/app.min.css' rel='stylesheet')
   |
   |

@@ -1,0 +1,38 @@
+mixin article-main()
+  <!--begin article-main-->
+  +b('section').article-main.fade&attributes(attributes)
+    .container
+      +e.wrapper
+        +e.img-wrapper
+          +img(true)(src="article-main/article-main-img.png", webp, alt="Девушка и мужчина в телефонах", size="476, 381").img
+
+        +e.content
+          +b.main-offers&attributes(attributes)
+            +e('ul').list
+              +e('li').item--theme--third
+                +e('p').text Кейс
+
+          +e('h1').title Реклама мобильных приложений
+
+          +e('p').subtitle Как рекламировать свое приложение, получать больше установок в appstore и google play. У вас есть мобильное приложение, мы запустим вам рекламу приложений в google, facebook, mytarget, яндекс и tiktok.
+          
+          +e.bottom
+            +button.--size--xl.__button(data-modal-target="present") Хочу также
+
+  <!--end article-main-->
+    
+mixin ui-kit-article-main()
+  +ui-section
+    +ui-section-head
+      +ui-title Компонент article-main
+      +ui-path
+        p Компонент: components/article-main/article-main
+      +ui-description
+        p Описание компонента
+  
+    +ui-section-content()
+      +article-main
+      
+    //- При +ui-section-content(true) контейнер отсутствует
+    //- Для перечисления инлайновых блоков используется миксин +ui-elements-list()
+    //- Рамка вокруг особой секции: +ui-special()

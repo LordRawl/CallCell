@@ -1,4 +1,96 @@
 .modal
+  +fill($pos: fixed)
+  z-index: 999
+  background-color: rgba(#000, .5)
+  display: none
+  overflow-y: auto
+
   $b: &
 
-  &__
+  &__container
+    position: absolute
+    +cxy
+    max-width: 100%
+    display: none
+    transition: $ease-main
+
+    @media only screen and (max-width: 1200px), only screen and (max-height: 650px)
+      // top: rem(40px)
+      top: 0
+      transform: translateX(-50%)
+      margin: rem(40px) 0
+
+    &--close
+      opacity: 0
+      margin-top: -20px
+
+  &__close
+    cursor: pointer
+    position: absolute
+    top: 10px
+    right: 10px
+    font-size: 0
+    z-index: 1
+
+    &::after
+      +pseudo
+      +size(250%)
+      z-index: -1
+      background-color: transparent
+      +cxy
+
+    &-icon
+      +size(14px)
+
+  &__content
+    display: flex
+    width: rem(925px)
+    overflow: hidden
+    background-color: #fff
+    border-radius: 10px
+
+    @media only screen and (max-width: 1200px), only screen and (max-height: 650px)
+      // margin-bottom: rem(40px)
+
+    +media(960px)
+      width: 26rem
+      max-width: 100%
+
+    +media(480px)
+      width: 30rem
+      max-width: 100%
+
+  &__img-wrapper
+    background-color: $color-main
+    position: relative
+    width: rem(455px)
+    flex-shrink: 0
+
+    +media(960px)
+      display: none
+
+  &__img
+    position: absolute
+    bottom: 0
+    +cx
+    font-size: 0
+    width: rem(610px)
+    height: 100%
+
+    img
+      +fill-img
+
+  &__form
+    padding: rem(70px)
+
+    +media(960px)
+      padding: 3rem
+  
+  &__title
+    text-align: left
+
+  &__button
+
+
+
+

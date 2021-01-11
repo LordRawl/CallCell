@@ -1,4 +1,4 @@
-+tab-wrapper()(data-tab="calc-tab-3" data-tab-group="calcTabs" data-calc-store="man").calc__slide
++tab-wrapper()(data-tab="man" data-tab-group="calcTabs").calc__slide.calc__slide--mobile--pb
 	+e('ul').list--min
 		+e('li').item(data-range-wrapper="", class="--max")
 			+e.header
@@ -45,7 +45,10 @@
 			+e('span')(data-calc-output="man").price-numb 0
 			|  ₽
 			+e('sup').price-symb *
+			
+		+e('p').anno *Не является офертой. Расчет является предварительным. 
 
 	+e.img-wrapper
-		+img(src="calc/woman.png", webp).img
+		+img(src="calc/woman.png", webp, adaptive="mobile" size="411, 594", alt="Девушка с планшетом").img
+	
 

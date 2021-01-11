@@ -1,6 +1,6 @@
 mixin footer()
   <!--begin footer-->
-  +b('footer').footer&attributes(attributes)
+  +b('footer').footer.fade&attributes(attributes)
     +e.top
       .container
         +e.content
@@ -9,9 +9,14 @@ mixin footer()
           +e('ul').list
             each item in getData('footer').list
               +e('li').item
-                +e(item.link ? 'a' : 'div').wrapper(href=item.link ? item.link : null, target=item.link ? '_blank' : null  )
-                  +icon(item.icon).__icon
-                  +e('p').text #{item.text}
+                if item.link
+                  +e('a').wrapper(href=item.link, target='_blank', rel="noreferrer" )
+                    +icon(item.icon).__icon(width="25" height="25")
+                    +e('p').text #{item.text}
+                else
+                  +e('div').wrapper
+                    +icon(item.icon).__icon(width="25" height="25")
+                    +e('p').text #{item.text}
           
           +call(true).__call
       

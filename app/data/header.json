@@ -2,23 +2,23 @@
 	"navbar": [
 		{
 			"text": "Услуги",
-			"link": ""
+			"link": "#services"
 		},
 		{
 			"text": "Тарифы",
-			"link": ""
+			"link": "#calc"
 		},
 		{
 			"text": "Технологии IS",
-			"link": ""
+			"link": "#office"
 		},
 		{
 			"text": "Вопросы",
-			"link": ""
+			"link": "#"
 		},
 		{
 			"text": "Блог",
-			"link": ""
+			"link": "#blog"
 		}
 	]
 }

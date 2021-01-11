@@ -1,15 +1,28 @@
 .main
 	$b: &
-	padding-top: 90px
-	padding-bottom: rem(160px)
+	padding-top: 0
 
 	&__wrapper
 		margin-top: rem(50px)
 		position: relative
 		z-index: 1
+		display: flex
+
+		+media(960px)
+			flex-direction: column
+			align-items: center
+			margin-top: 0
 
 	&__content
 		max-width: rem(550px)
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+
+		+media(960px)
+			width: 100%
+			max-width: 100%
+			margin-top: 2rem
 
 	&__title
 		font-size: rem(55px)
@@ -17,54 +30,105 @@
 		font-family: $font-second
 		line-height: 1.2
 		margin-top: rem(15px)
+		@extend %show-in-mobile
+
+		+media(960px)
+			font-size: 2.8rem
 	
 	&__subtitle
-		font-size: rem(18px)
+		@extend %text-18
 		line-height: 1.5
 	
 	&__block
 		margin-top: rem(40px)
-		padding-left: rem(25px)
 		display: flex
 		align-items: flex-start
 		position: relative
+		@extend %show-in-mobile
+
+		+media($min: 481px)
+			padding-left: rem(25px)
+		
+		+media(480px)
+			margin-top: 1.5rem
 	
 	&__icon-wrapper
 		position: absolute
 		left: 0
 		top: 0
 		height: 100%
+
+		+media(480px)
+			display: none
 		
 	&__icon
 		+size(3px, 100%)
 
 	&__present
 		margin-top: rem(55px)
+		@extend %show-in-mobile
+
+		+media(960px)
+			order: 1
+			max-width: 28rem
+		
+		+media(480px)
+			max-width: 100%
+			margin-top: 2rem
 
 	&__bottom
 		margin-top: rem(50px)
+		@extend %show-in-mobile
+
+		+media(480px)
+			width: 100%
+			text-align: center
+			margin-top: 1.5rem
 	
 	&__button
 
 	&__infinite
 		position: absolute
-		top: 3.6em
-		right: -17em
+		content-visibility: auto
+		top: 8.6em
+		right: 5%
 		+size(rem(122px), rem(95px))
 		fill: none
+		z-index: 2
 		stroke: $color-main
 		stroke-width: 2px
 		stroke-dasharray: 0 330
 		stroke-dashoffset: 1
+
+		+media(1600px)
+			display: none
 	
 	&__img-wrapper
-		position: absolute
-		z-index: -1
-		right: - rem(55px)
-		bottom: - rem(60px)
-	
+		@extend %show-in-mobile
+		position: relative
+		display: inline-block
+
+		+media($min: 961px)
+			position: absolute
+			z-index: -1
+			right: - rem(55px)
+			top: 2rem
+
+		+media($min: 1201px)
+			top: 0
+		
 	&__img
 		+size(rem(600px), rem(572px))
+		display: inline-block
+
+		+media(1200px)
+			+size(30rem, 27.45rem)
+		
+		+media(480px)
+			+size(23rem, 21rem)
+		
+		img
+			width: 100%
 	
 	&__anim
 		position: absolute
@@ -75,6 +139,15 @@
 		text-align: center
 		pointer-events: none
 
+		+media(1200px)
+			right: 10rem
+			top: 2.9rem
+
+		+media(480px)
+			right: 8rem
+			top: 2rem
+			width: 7rem
+
 	&__anim-text
 		font-size: rem(16px)
 		font-weight: 700
@@ -84,11 +157,17 @@
 		display: inline-block
 		width: 100%
 
+		+media(1200px)
+			font-size: 0.85rem
+
+		+media(480px)
+			font-size: 0.65rem
 
 .main-cloud
 	position: absolute
 	top: rem(280px)
 	left: rem(-300px)
+	@extend %show-in-mobile
 
 	+media(1440px)
 		display: none

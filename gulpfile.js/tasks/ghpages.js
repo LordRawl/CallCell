@@ -1,4 +1,4 @@
-const gulp = require('gulp');
-const ghpages = require('gulp-gh-pages');
+const gulp = require( 'gulp' );
+const ghpages = require( 'gulp-gh-pages' );
 
-module.exports = () => gulp.src('dist/**/*').pipe(ghpages());
+module.exports = () => gulp.src( 'dist/**/*' ).pipe( ghpages() );

@@ -1,36 +1,84 @@
-$positions: -2.3rem 8.4rem, 12rem -0.4rem, 20rem 15rem, 36.8rem 8.5rem, 53rem 0.2rem, 59rem 13.2rem
+$positions-xl: -2.3rem 8.4rem, 12rem -0.4rem, 20rem 15rem, 36.8rem 8.5rem, 53rem 0.2rem, 59rem 13.2rem
+$positions-lg: -2.3rem 8.4rem, 9rem -0.4rem, 17rem 15rem, 31rem 8.5rem, 42rem -1.5rem, 49rem 13.2rem
+$positions-md: 0rem 0rem, 10rem 11.2rem, 0.7rem 25rem, 12rem 36rem, 0rem 48rem, 14rem 60rem
 	
+$max-w-xl: rem(180px), rem(190px), rem(150px), rem(180px), rem(150px), rem(220px)
+$max-w-md: 12.1rem, 19rem, 14rem, 17rem, 15rem, 16rem
+
 .stages
 	$b: &
-	padding: rem(100px) 0
 	position: relative
 	z-index: 2
-	+bg('stages/stages-bg.svg', $size: auto, $position: 105% 50%, $color: $bg-second)
+
+	+media($min: 961px)
+		+bg('stages/stages-bg.svg', $size: auto, $position: 105% 50%, $color: $bg-second)
+	
+	+media(960px)
+		background-color: $bg-second
 
 	&__content
 
 	&__title
 		text-align: center
-		opacity: 0
+
+		+media(480px)
+			text-align: left
 
 	&__wrapper
-		+ratio(1170px, 415px)
+		+ratio(1170px, 400px)
 		width: 100%
 		position: relative
 		margin-top: rem(90px)
 		z-index: 1
 
+		+media(1200px)
+			padding-top: 40%
+		
+		+media(960px)
+			padding-top: 0
+			+size(29rem, 72rem)
+			margin: 5rem auto 0
+		
+		+media(480px)
+			height: 76rem
+
 	&__list
 
 	&__item
 		position: absolute
-		opacity: 0
+		@extend %show-in-mobile
 
-		@each $posX, $posY in $positions
-			$idx: index($positions, $posX $posY)
+		@each $posX, $posY in $positions-xl
+			$idx: index($positions-xl, $posX $posY)
 			&-#{$idx}
 				left: $posX
 				top: $posY
+		
+		@for $idx from 1 through length($max-w-xl)
+			$max-w: nth($max-w-xl, $idx)
+			&-#{$idx}
+				.stages__text
+					max-width: $max-w
+
+		+media(1200px)
+			@each $posX, $posY in $positions-lg
+				$idx: index($positions-lg, $posX $posY)
+				&-#{$idx}
+					left: $posX
+					top: $posY
+
+		+media(960px)
+			@each $posX, $posY in $positions-md
+				$idx: index($positions-md, $posX $posY)
+				&-#{$idx}
+					left: $posX
+					top: $posY
+		
+			@for $idx from 1 through length($max-w-md)
+				$max-w: nth($max-w-md, $idx)
+				&-#{$idx}
+					.stages__text
+						max-width: $max-w
 		
 		&-1
 			.stages__img-wrapper
@@ -41,9 +89,6 @@ $positions: -2.3rem 8.4rem, 12rem -0.4rem, 20rem 15rem, 36.8rem 8.5rem, 53rem 0.
 					right: - rem(14px)
 					background: $color-main
 			
-			.stages__text
-				max-width: rem(180px)
-
 		&-2
 			.stages__img-wrapper
 				&::before, &::after
@@ -53,9 +98,6 @@ $positions: -2.3rem 8.4rem, 12rem -0.4rem, 20rem 15rem, 36.8rem 8.5rem, 53rem 0.
 					right: - rem(12px)
 					background: $color-third
 			
-			.stages__text
-				max-width: rem(190px)
-
 		&-3
 			.stages__img-wrapper
 				&::before, &::after
@@ -66,9 +108,6 @@ $positions: -2.3rem 8.4rem, 12rem -0.4rem, 20rem 15rem, 36.8rem 8.5rem, 53rem 0.
 					top: rem(2px)
 					background: $color-second-gray
 			
-			.stages__text
-				max-width: rem(150px)
-
 		&-4
 			.stages__img-wrapper
 				&::before, &::after
@@ -78,10 +117,7 @@ $positions: -2.3rem 8.4rem, 12rem -0.4rem, 20rem 15rem, 36.8rem 8.5rem, 53rem 0.
 					left: - rem(8px)
 					top: rem(2px)
 					background: $color-main
-			
-			.stages__text
-				max-width: rem(180px)
-
+			 
 		&-5
 			.stages__img-wrapper
 				&::before, &::after
@@ -91,9 +127,6 @@ $positions: -2.3rem 8.4rem, 12rem -0.4rem, 20rem 15rem, 36.8rem 8.5rem, 53rem 0.
 					left: - rem(8px)
 					background: $color-second-gray
 			
-			.stages__text
-				max-width: rem(150px)
-
 		&-6
 			.stages__img-wrapper
 				&::before, &::after
@@ -103,10 +136,6 @@ $positions: -2.3rem 8.4rem, 12rem -0.4rem, 20rem 15rem, 36.8rem 8.5rem, 53rem 0.
 					right: - rem(8px)
 					background: $color-third
 			
-			.stages__text
-				max-width: rem(220px)
-
-
 	&__img-wrapper
 		margin: 0 auto
 		display: flex
@@ -133,10 +162,18 @@ $positions: -2.3rem 8.4rem, 12rem -0.4rem, 20rem 15rem, 36.8rem 8.5rem, 53rem 0.
 	&__text
 		font-weight: 600
 		color: $color-text-main
-		max-width: 180px
 		text-align: center
 		margin-top: rem(20px)
 		@extend %text-14
+
+		+media(640px)
+			font-size: 1rem
+
+		+media(480px)
+			font-size: 1.2rem
+
+		+media(370px)
+			font-size: 1.4rem
 
 	&__line
 		fill: none
@@ -150,10 +187,29 @@ $positions: -2.3rem 8.4rem, 12rem -0.4rem, 20rem 15rem, 36.8rem 8.5rem, 53rem 0.
 		+size(rem(1003px), rem(348px))
 		z-index: -1
 
-		> *
-			stroke-dashoffset: 1
-			stroke-dasharray: 0 20
+		+media($min: 961px)
+			> *
+				stroke-dashoffset: 1
+				stroke-dasharray: 0 20
+
+		+media(1200px)
+			left: 0
+			width: 95%
+		
+		+media(960px)
+			display: none
 	
+	&__line-mobile
+		display: block
+		margin: auto
+		+size(60%, 85%)
+
+		+media($min: 481px)
+			height: 90%
+
+		+media($min: 961px)
+			display: none
+
 	&__dashed-line
 		position: absolute
 		left: 0
@@ -167,8 +223,16 @@ $positions: -2.3rem 8.4rem, 12rem -0.4rem, 20rem 15rem, 36.8rem 8.5rem, 53rem 0.
 		stroke: $color-main
 		stroke-width: 2px
 		position: absolute
-		right: 100%
 		top: 0
-		transform: translate(-3rem, 4rem)	
 		+size(rem(147px), rem(82px))
-		stroke-dasharray: 0 390
+
+		+media($min: 961px)
+			stroke-dasharray: 0 390
+
+		+media($min: 1441px)
+			transform: translate(-3rem, 4rem)	
+			right: 100%
+		
+		+media(960px)
+			transform: rotate(100deg)
+			right: 0

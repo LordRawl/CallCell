@@ -29,10 +29,8 @@ export default class Switch {
 	}
 
 	clickHandler( event ) {
-		if ( event.target.closest( '[data-switch-button]' ) ) {
-			this.toggle( );
-			this.change();
-		}
+		this.toggle( );
+		this.change();
 	}
 
 	get getEl() {

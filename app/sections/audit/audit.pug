@@ -1,6 +1,6 @@
 mixin audit()
   <!--begin audit-->
-  +b('section').audit&attributes(attributes)
+  +b('section').audit.fade&attributes(attributes)
     .container
       +e.content
         +e.block--text
@@ -10,7 +10,10 @@ mixin audit()
           +e('p').text.fade-bottom Низкая конверсия кроется в долгих ответах на звонок, не качественной консультации, отсутствии обратного звонка на пропущенный
 
           +e.img-wrapper.fade-bottom
-            +e('img').img(src="assets/images/audit/audit-img.svg" alt="Мужчина в лупе")
+            +e('img').img.lazy(data-src="assets/images/audit/audit-img.svg" alt="Лупа с резюме" width="517" height="373" )
+            
+            +e.img-man-wrapper
+              +e('img').img-man.lazy(data-src="assets/images/audit/audit-man.svg" alt="Мужчина" width="228" height="231")
 
         +e.block--form.fade
           +form.--theme--dark.--bg.__form
@@ -18,20 +21,18 @@ mixin audit()
             +e('p').subtitle.fade-bottom Проведем аудит, внедрим эффективные инструменты, увеличим конверсию
 
             +form-group.fade-bottom
-              +input-wrapper('Контактный номер')
+              +input-wrapper('Контактный номер')(name="phone" type="text")
 
             +form-group.fade-bottom
-              +input-wrapper('Ваша почта')
+              +input-wrapper('Ваша почта')(name="email" type="text")
             
             +form-group.fade-bottom
-              +button().--size--xl.__button Записаться на аудит
+              +button(type="submit").--size--xl.__button Записаться на аудит
 
             +e('label').accept.fade-bottom
               +checkbox().--size--md(
                 data-form-checkbox=""
-                data-false-value="0",
-                data-true-value="1",
-                data-checkbox-type=""
+                data-checkbox-type="accept"
               )
                 p.form__accept-text Я принимаю условия 
                   a(href="#" target="_blank").form__accept-link передачи информации

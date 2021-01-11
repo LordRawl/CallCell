@@ -1,0 +1,24 @@
+extends ../../layouts/default
+
+block head
+	- var pageTitle = projectName + ' | thanks'
+
+block content
+	<!--begin thanks-->
+	+b('section').thanks.fade&attributes(attributes)
+		.container
+			+e.wrapper
+				+e.img-wrapper
+					+img(true)(src="thanks/thanks-img.svg", alt="Девушка в круге", size="551, 470").img.fade-bottom
+
+				+e.content
+					+e('h1').title.fade-bottom Спасибо за заявку!
+
+					+e('p').subtitle.fade-bottom Скоро с вами свяжется наш специалист.
+					
+					+e.bottom.fade-bottom
+						+button.--size--xl.__button(href="/") На главную
+
+	<!--end thanks-->
+
+	+modal

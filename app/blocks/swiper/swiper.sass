@@ -18,6 +18,9 @@
 		line-height: 0
 		box-shadow: 0 0.2em 0 #ED4F3A, 0 1.2em 2.25em rgba(255, 83, 61, 0.3), inset 0px -0.3em 0.45em rgba(255, 255, 255, 0.11), inset 0px 0.2em 0.45em rgba(255, 255, 255, 0.13)
 
+		+media(480px)
+			+size(30px)
+
 		&.swiper-button-disabled
 			opacity: 0
 			pointer-events: none
@@ -38,12 +41,14 @@
 				transform: scaleX(-1) translateX(2px)
 		
 		&-next
-
 	
 	&__icon
 		+size(16px)
 		transition: $ease-main
 		fill: $color-text-light
+
+		+media(480px)
+			+size(12px)
 	
 	&__paginations
 		display: flex
@@ -56,10 +61,11 @@
 		border-radius: 50%
 		cursor: pointer
 
+		+media(480px)
+			+size(6px)
+
 		&.-active-
 			background-color: $color-main
-
-
 
 
 @keyframes iconTranslate

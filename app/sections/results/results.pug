@@ -8,7 +8,7 @@ mixin resultRibbon()
 
 mixin results()
   <!--begin results-->
-  +b('section').results&attributes(attributes)
+  +b('section').results.fade&attributes(attributes)
     .container
       +e.content
         +e('h2').title.title.fade-bottom Какие результаты получили наши клиенты
@@ -19,7 +19,7 @@ mixin results()
             each item in getData('results').list
               +e('li').item.swiper-slide
                 +e.icon-wrapper
-                  +icon(item.icon).icon
+                  +icon(item.icon).icon(width="50" height="50")
 
                 +e('h3').title #{item.title}
                 +e('ul').sublist
@@ -29,7 +29,7 @@ mixin results()
                       +e('span').text !{bullet.value}
                 
                 +e.bottom
-                  +e('button')(type="button").link #{item.button}
+                  +e('a')(href=item.link.href).link #{item.link.text}
           
         .swiper__buttons.results-slider__buttons.fade-bottom
           +swiperButton('prev')(aria-label="Показать предыдущий слайд").results-slider__button-prev

@@ -6,19 +6,53 @@
 
   &__content
     display: flex
+    align-items: center
 
-    > * + *
-      margin-left: rem(70px)
+    +media($min: 961px)
+      > * + *
+        margin-left: 1.5rem
+
+    +media($min: 1201px)
+      > * + *
+        margin-left: rem(70px)
+
+    +media(960px)
+      flex-wrap: wrap
+      justify-content: space-between
 
   &__list
     display: flex
     align-items: center
     flex-grow: 1
 
-    > * + *
-      margin-left: rem(70px)
+    +media($min: 961px)
+      > * + *
+        margin-left: 1.5rem
+
+    +media($min: 1201px)
+      > * + *
+        margin-left: rem(70px)
+
+    +media(1200px)
+      justify-content: space-between
+
+    +media(960px)
+      order: 1
+      width: 100%
+      margin-top: 1rem
+    
+    +media(640px)
+      flex-wrap: wrap
 
   &__item
+
+    +media(640px)
+      width: 50%
+      margin: 5px 0
+    
+      &:first-child
+        order: 1
+        flex: 1 1 50%
 
   &__wrapper
     display: flex
@@ -34,9 +68,13 @@
 
   &__icon
     +size(rem(25px))
+    flex-shrink: 0
 
   &__text
     @extend %text-16
+
+    +media(480px)
+      font-size: 1.2rem
 
   &__bottom
     padding: rem(10px) 0 rem(15px)
@@ -66,3 +104,9 @@
       &::after
         transform: scaleX(0)
 
+  &__call
+    +media(640px)
+      width: 50%
+      
+      .call__phone
+        font-size: 1.2rem

@@ -12,6 +12,10 @@
     @extend %text-16
     border-radius: 5px
     cursor: default
+    @extend %show-in-mobile
+
+    +media(480px)
+      padding: 0.2em 0.6em 0.3em
 
     &--theme
 

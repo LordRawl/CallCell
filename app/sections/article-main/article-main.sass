@@ -1,0 +1,87 @@
+.article-main
+	$b: &
+	padding-top: 1px
+	padding-bottom: 10rem
+	$b-bg-color: str-slice(#{$color-main}, 2, -1)
+	background-color: $bg-second
+	@extend %show-in-mobile
+
+	+media($min: 641px)
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 39.69 80.13'%3E%3Cpath d='M39.69.89V0H0V80.13H39.69v-.9h-19V60.32h19v-.9h-19V40.5h19v-.89h-19V20.7h19v-.89h-19V.89ZM19.81,79.23H.89V60.32H19.81Zm0-19.81H.89V40.5H19.81Zm0-19.8H.89V20.7H19.81Zm0-19.81H.89V.89H19.81Z' fill='%23#{$b-bg-color}' /%3E%3C/svg%3E"), url('../images/article-main/article-main-bg.svg')
+		background-position: bottom center, center
+		background-repeat: repeat-x, no-repeat 
+		background-size: rem(40px) rem(80px), rem(1660px) rem(336px)
+
+	+media(640px)
+		padding-bottom: 6rem
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M40,.88V0H0V40H40v-.88H20.85V20.44H40v-.87H20.85V.88ZM20,39.13H1V20.44H20Zm0-19.56H1V.88H20Z' fill='%23#{$b-bg-color}' /%3E%3C/svg%3E")
+		background-size: rem(40px) rem(40px)
+		background-position: bottom center
+		background-repeat: repeat-x
+	
+	&__wrapper
+		margin-top: rem(50px)
+		position: relative
+		z-index: 1
+		display: flex
+
+		+media(960px)
+			flex-direction: column
+			align-items: center
+			margin-top: 1rem
+
+	&__img-wrapper
+		position: relative
+		display: inline-block
+
+		+media($min: 961px)
+			position: absolute
+			right: 0
+			top: 0
+
+		+media($min: 1201px)
+			right: 2rem
+
+	&__img
+		display: inline-block
+		+size(rem(476px), rem(381px))
+
+		+media(1200px)
+			+size(26rem, 22rem)
+
+
+	&__content
+		max-width: rem(600px)
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+		max-width: 35rem
+
+		+media(960px)
+			width: 100%
+			max-width: 100%
+			margin-top: 2rem
+
+	&__title
+		font-size: rem(50px)
+		font-weight: 700
+		font-family: $font-second
+		line-height: 1.2
+		margin-top: rem(15px)
+
+		+media(960px)
+			font-size: 2.8rem
+	
+	&__subtitle
+		margin-top: rem(30px)
+		@extend %text-16
+		color: $color-text-second
+
+	&__bottom
+		margin-top: rem(50px)
+
+		+media(480px)
+			width: 100%
+			text-align: center
+
+	&__button

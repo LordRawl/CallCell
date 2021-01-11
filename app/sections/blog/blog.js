@@ -1,9 +1,5 @@
 /* eslint-disable no-unused-vars */
 import Swiper from 'swiper';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin( ScrollTrigger );
 
 function _swiperInit() {
 	const swiper = document.querySelector( '.blog-slider' );
@@ -24,39 +20,32 @@ function _swiperInit() {
 			bulletActiveClass: '-active-',
 			bulletClass: 'swiper__dot',
 		},
-		breakpoints: {},
+		breakpoints: {
+			1200: {
+				slidesPerView: 3,
+				spaceBetween: 10,
+			},
+			640: {
+				slidesPerView: 2,
+				spaceBetween: 10,
+			},
+			480: {
+				slidesPerView: 1.5,
+				spaceBetween: 10,
+			},
+			320: {
+				slidesPerView: 1,
+				spaceBetween: 10,
+				slidesPerColumn: 2,
+				slidesPerColumnFill: 'row',
+			},
+
+		},
 	};
 
 	const Slider = new Swiper( '.blog-slider', swiperOptions );
 }
 
-export default function blog() {
+export default function blogInit() {
 	_swiperInit();
-
-	gsap.timeline( {
-		scrollTrigger: {
-			trigger: '.blog__line',
-			toggleActions: 'play pause play pause',
-		},
-		repeat: -1,
-		delay: 3,
-		repeatDelay: 3,
-	} )
-		.fromTo( '.blog__line', {
-			strokeDashoffset: '-610',
-		}, {
-			strokeDashoffset: '1',
-			duration: 2.5,
-			ease: 'power1.out',
-		} )
-
-
-		.fromTo( '.blog__line', {
-			strokeDasharray: '610 610',
-		}, {
-			delay: 1,
-			strokeDasharray: '0 610',
-			duration: 2.5,
-			ease: 'power1.out',
-		} );
 }

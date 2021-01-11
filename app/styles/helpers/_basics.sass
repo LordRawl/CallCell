@@ -44,11 +44,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 // Основные стили
 // ########## 
 
-
-html 
-	box-sizing: border-box
-	font-size: 16px
-
 *, *:before, *:after 
 	box-sizing: border-box
 	outline: none
@@ -62,13 +57,14 @@ html, body
 	width: 100%
 	min-height: 100%
 
+html
+	box-sizing: border-box
 
 body
 	font-family: $font-main // Задаем основной шрифт
 	font-size: inherit // Убираем проблему с отступами между inline-элементами
 	line-height: 1.4
 	color: $color-basic
-	overflow: hidden
 	-webkit-text-size-adjust: none
 	-webkit-overflow-scrolling: touch
 
@@ -84,6 +80,7 @@ img
 picture
 	img
 		max-width: 100%
+		height: auto
 
 
 // ##########
@@ -140,34 +137,84 @@ select, input, textarea, button
 // Остальные стили
 // ########## 
 
+
+
+html 
+	font-size: $base-font-size
+
+	+media(1200px)
+		font-size: 15px
+
+	+media(960px)
+		font-size: 14.6px
+
+	+media(640px)
+		font-size: 14px
+
+	+media(480px)
+		font-size: 12px
+
+	+media(370px)
+		font-size: 10px
+
 .container
-  position: relative
-  width: $container-width
-  padding-left: $container-padding
-  padding-right: $container-padding
-  margin-left: auto
-  margin-right: auto
-  max-width: 100%
+	position: relative
+	width: $container-width
+	padding-left: $container-padding
+	padding-right: $container-padding
+	margin-left: auto
+	margin-right: auto
+	max-width: 100%
+
+	+media(1200px)
+		width: 960px
+
+	+media(960px)
+		width: 640px
+
+	+media(640px)
+		width: 100%
 
 .wrapper
 	min-height: 100vh
 	display: flex
 	flex-direction: column
 	background-color: $bg-basic
+	overflow: hidden
 
 .page
 	flex: 1 1 auto
+	display: flex
+	flex-direction: column
+	padding-top: 90px
+
+	+media(1200px)
+		padding-top: 80px
+
+	+media(640px)
+		padding-top: 70px
+
+	+media(370px)
+		padding-top: 5.6rem
+
 
 .color--second
-  color: $color-second
+	color: $color-second
 
 .color--main
-  color: $color-main
+	color: $color-main
 
 .weight--bold
-  font-weight: 700
+	font-weight: 700
 
 .title
-  @extend %text-35
-  color: $color-text-main
-  font-family: $font-second
+	@extend %text-35
+	line-height: 1.1
+	color: $color-text-main
+	font-family: $font-second
+
+section
+	padding: 5rem 0 6rem
+
+	+media(640px)
+		padding: 4rem 0

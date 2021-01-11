@@ -8,7 +8,6 @@ const images = require( './tasks/images' );
 const scripts = require( './tasks/scripts' );
 const styles = require( './tasks/styles' );
 const templates = require( './tasks/templates' );
-// const copymain = require( './tasks/copymain' );
 const watch = require( './tasks/watch' );
 
 gulp.task( 'scripts', scripts( false ) );
@@ -19,9 +18,7 @@ gulp.task( 'ghpages', ghpages );
 gulp.task( 'images', images );
 gulp.task( 'icons', icons );
 gulp.task( 'styles', styles.build );
-// gulp.task('lint', styles.lint);
 gulp.task( 'templates', templates );
-// gulp.task( 'copymain', copymain );
 gulp.task( 'server', server );
 gulp.task( 'watch', watch );
 

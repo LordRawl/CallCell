@@ -1,8 +1,8 @@
 .switch
+	$s: &
+	$switch-gap: rem(30px)
 	display: inline-flex
 	align-items: center
-	$switch-gap: rem(30px)
-	$s: &
 
 	&::before, &::after
 		font-family: $font-second
@@ -11,7 +11,8 @@
 		line-height: 1
 		transition: $ease-main
 		padding-bottom: 3px
-		border-bottom: 1px solid 
+		border-bottom: 1px solid
+		cursor: pointer
 
 	&::before
 		content: attr(data-switch-before)

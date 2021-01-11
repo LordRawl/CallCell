@@ -5,7 +5,9 @@ $color-tabs-default: #A6A6A6
   z-index: 2
   display: flex
   align-items: flex-end
-  justify-content: space-around
+
+  +media($min: 1201px)
+    justify-content: space-around
 
   &__item
     $border-width: 2px
@@ -19,11 +21,20 @@ $color-tabs-default: #A6A6A6
     border-bottom: $border-width solid currentColor
     padding-bottom: 10px
 
+    +media(960px, 641px)
+      font-size: 0.8rem
+    
+    +media(640px)
+      font-size: 0.9rem
+
+    +media(480px)
+      font-size: 1.2rem
+
     &::after
       content: ''
       position: absolute
       left: 50%
-      bottom: - ($border-width / 2)
+      bottom: -1.5px
       +size(13px)
       display: block
       border-left: $border-width solid $color-second
@@ -41,9 +52,15 @@ $color-tabs-default: #A6A6A6
 
     &--min
       width: 20%
+
+      +media(960px)
+        width: 25%
     
     &--max
       width: 25%
+
+      +media(1200px)
+        width: 30%
   
   &__text
     font-weight: 700

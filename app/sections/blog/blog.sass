@@ -2,25 +2,40 @@
   $b: &
   $b-bg-color: str-slice(#{$color-main}, 2, -1)
   background-color: $bg-second
-  padding: rem(100px) 0 rem(150px)
+  padding-bottom: 7rem
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 39.69 80.13'%3E%3Cpath d='M39.69.89V0H0V80.13H39.69v-.9h-19V60.32h19v-.9h-19V40.5h19v-.89h-19V20.7h19v-.89h-19V.89ZM19.81,79.23H.89V60.32H19.81Zm0-19.81H.89V40.5H19.81Zm0-19.8H.89V20.7H19.81Zm0-19.81H.89V.89H19.81Z' fill='%23#{$b-bg-color}' /%3E%3C/svg%3E"), url('../images/blog/blog-bg.svg')
   background-position: bottom center, 6% 42%
   background-repeat: repeat-x, no-repeat 
   background-size: rem(40px) rem(80px), rem(250px) rem(320px)
 
+  +media(640px)
+    padding-bottom: 4rem
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M40,.88V0H0V40H40v-.88H20.85V20.44H40v-.87H20.85V.88ZM20,39.13H1V20.44H20Zm0-19.56H1V.88H20Z' fill='%23#{$b-bg-color}' /%3E%3C/svg%3E")
+    background-size: rem(40px) rem(40px)
+    background-repeat: repeat-x
+
   &__content
     position: relative
 
   &__title
-    text-align: center
+
+    +media($min: 481px)
+      text-align: center
 
   &__slider
     margin-top: rem(70px)
+
+    +media(640px)
+      margin-top: 2rem
 
   &__line-wrapper
     position: absolute
     top: -1rem
     right: -10rem
+
+    +media(1440px)
+      right: 0
+      top: -2rem
 
   &__line
     fill: none
@@ -29,15 +44,27 @@
     stroke-linejoin: round
     stroke-width: 3px
     +size(rem(160px), rem(123px))
-    stroke-dasharray: 0 610
-    stroke-dashoffset: 1
+
+    +media($min: 961px)
+      stroke-dasharray: 0 610
+      stroke-dashoffset: 1
+
+    +media(1440px)
+      +size(8rem, 6rem)
+
+    +media(640px)
+      +size(6rem, 4.6rem)
+
+
   
 
 .blog-slider
-  $slider-gap: rem(30px)
-  padding: 0 $slider-gap rem(35px)
-  margin-left: -$slider-gap
-  margin-right: -$slider-gap
+
+  +media($min: 961px)
+    $slider-gap: rem(30px)
+    padding: 0 $slider-gap rem(35px)
+    margin-left: -$slider-gap
+    margin-right: -$slider-gap
 
   &__list
     z-index: 0
@@ -55,12 +82,13 @@
     flex-direction: column
     transition: box-shadow $ease-main
 
-    &:hover
-      z-index: 3
-      box-shadow: 0px 15px 25px rgba(163, 163, 163, 0.3)
+    +media($min: 961px)
+      &:hover
+        z-index: 3
+        box-shadow: 0px 15px 25px rgba(163, 163, 163, 0.3)
 
-      .blog-slider__icon
-        transform: scale(1.1) rotate(5deg)
+        .blog-slider__icon
+          transform: scale(1.1) rotate(5deg)
 
   &__top
     display: flex
@@ -116,13 +144,15 @@
     color: $color-text-second
 
   &__buttons
-    // margin-top: rem(30px)
     display: flex
     align-items: center
     justify-content: center
 
     > * + *
       margin-left: rem(50px)
+
+    +media(960px)
+      margin-top: 2rem
 
   &__button
 

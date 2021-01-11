@@ -1,5 +1,5 @@
 .header
-	$b: &
+	$h: &
 	padding: rem(20px) 0
 	position: absolute
 	right: 0
@@ -9,39 +9,89 @@
 	transition: $ease-main
 	background-color: $bg-basic
 
+	+media(960px)
+		position: fixed
+
 	&__content
+		background-color: $bg-basic
 		display: flex
 		align-items: center
 		justify-content: space-between
+		
+	&__block
+		display: flex
+		align-items: center
+
+		> * + *
+			margin-left: rem(35px)
+
+			+media(480px)
+				margin-left: 1.4rem
 
 	&__logo
+		@extend %show-in-mobile
+
+		+media($min: 961px)
+			margin-left: 0
 
 	&__navbar
 
+		+media(960px)
+			position: fixed
+			left: 0
+			top: 0
+			width: 100%
+			background-color: $bg-basic
+			padding: 7rem 1rem 2rem
+			border-radius: 0 0 5px 5px
+			z-index: -1
+			transform: translateY(-100%)
+			transition: $ease-main
+			opacity: 0
+
+			#{$h}--open &
+				opacity: 1
+				transform: translateY(0%)
+
 	&__list
 		display: flex
-		align-items: center
-		justify-content: space-between
 
-		> * + *
-			margin-left: rem(20px)
+		+media($min: 961px)
+			align-items: center
+			justify-content: space-between
+
+			> * + *
+				margin-left: rem(20px)
+
+		+media(960px)
+			flex-direction: column
+			justify-content: center
+			align-items: center
+
+			> * + *
+				margin-top: rem(20px)
 
 	&__item
 		position: relative
 		z-index: 1
 		line-height: 1
 		color: $color-text-second
-		
-		&:hover
-			color: $color-main
+		@extend %show-in-mobile
 
-			.header__hover-border
-				transform: scale(1)
-				opacity: 1
+		+media($min: 961px)
+			&:hover
+				color: $color-main
+
+				.header__hover-border
+					transform: scale(1)
+					opacity: 1
 
 	&__link
 		@extend %text-16
 		transition: $ease-main
+
+		+media(960px)
+			font-size: 1.6rem
 
 	&__hover-border
 		+fill
@@ -77,14 +127,15 @@
 			&::before, &::after
 				bottom: - $square-size/2
 				border-bottom-width: 1px
-			
-	&__block
-		display: flex
-		align-items: center
-
-		> * + *
-			margin-left: rem(35px)
-
+	
 	&__call
+		@extend %show-in-mobile
 
+	&__button-wrapper
+		@extend %show-in-mobile
+
+		+media(1200px)
+			display: none
+	
 	&__button
+

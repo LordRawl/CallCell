@@ -1,0 +1,26 @@
+- var list = ['Статистика по звонкам', 'Аналитика расходов', 'Импорт и экспорт базы', 'Корректировка скриптов в&nbsp;режиме онлайн']
+
+mixin article-list()
+  <!--begin article-list-->
+  +b('section').article-list.fade&attributes(attributes)
+    .container
+      +e.content
+        +e.block
+          +e('h2').title.title Задача
+
+          +img(src="article-list/article-list-img.svg", alt="График", size="360, 240").img
+
+          +e.info
+            +e('p').text--size--xl Наблюдайте за процессом работы в&nbsp;режиме онлайн
+
+            +e.list-wrapper
+              +e('ul').list
+                each item in list
+                  +e('li').item
+                    +e('p').descr !{item}
+              
+            +e('p').text--size--md Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+    +dashed-line.__line
+
+  <!--end article-list-->

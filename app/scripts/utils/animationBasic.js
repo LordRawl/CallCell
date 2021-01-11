@@ -104,7 +104,7 @@ Element.prototype.slideToggle = function ( duration = 300 ) {
 
 export default function animation() {
 	const fade = document.querySelectorAll( '.fade, .fade-top, .fade-left, .fade-bottom, .fade-right' );
-	if ( window.innerWidth <= 960 ) {
+	if ( window.innerWidth <= window.globalOptions.md ) {
 		fade.forEach( ( item ) => {
 			item.classList.remove( 'fade', 'fade-top', 'fade-bottom', 'fade-left', 'fade-right' );
 		} );
@@ -115,49 +115,52 @@ export default function animation() {
 
 	gsap.registerPlugin( ScrollTrigger );
 
-	gsap.utils.toArray( ['.fade', 'section'] ).forEach( ( block, i ) => {
-		const anim = gsap.timeline( {
+	gsap.utils.toArray( '.fade' ).forEach( ( block, i ) => {
+		gsap.timeline( {
 			scrollTrigger: {
 				trigger: block,
-				start: 'top bottom-=20%',
 			},
+			duration: window.globalOptions.animationDuration,
 		} )
-			.fromTo( block, { opacity: 0, duration: 0.5 }, {	opacity: 1 } );
+			.fromTo( block, { opacity: 0 }, {	opacity: 1 } );
 	} );
 	gsap.utils.toArray( '.fade-top' ).forEach( ( block, i ) => {
-		const anim = gsap.timeline( {
+		gsap.timeline( {
 			scrollTrigger: {
 				trigger: block,
 			},
-			duration: 0.5,
+			duration: window.globalOptions.animationDuration,
 		} )
-			.fromTo( block, { opacity: 0, y: -50 }, {	opacity: 1, y: 0, ease: 'back.out(1.7)' } );
+			.fromTo( block, { opacity: 0, y: -50 }, {	opacity: 1, y: 0, ease: 'back.out(1.7)' }, 'anim' );
 	} );
 	gsap.utils.toArray( '.fade-bottom' ).forEach( ( block, i ) => {
-		const anim = gsap.timeline( {
+		gsap.timeline( {
 			scrollTrigger: {
 				trigger: block,
 			},
-			duration: 0.5,
+			duration: window.globalOptions.animationDuration,
+			delay: 0,
 		} )
-			.fromTo( block, {	opacity: 0, y: 50	}, {	opacity: 1, y: 0, ease: 'back.out(1.7)' } );
+			.fromTo( block, {	opacity: 0, y: 25	}, {	opacity: 1, y: 0, ease: 'back.out(1.7)' }, 'anim' );
 	} );
 	gsap.utils.toArray( '.fade-left' ).forEach( ( block, i ) => {
-		const anim = gsap.timeline( {
+		gsap.timeline( {
 			scrollTrigger: {
 				trigger: block,
 			},
+			duration: window.globalOptions.animationDuration,
 			ease: 'back.out(1.7)',
 		} )
-			.fromTo( block, { opacity: 0, x: -50, duration: 0.5 }, {	opacity: 1, x: 0, ease: 'back.out(1.7)' } );
+			.fromTo( block, { opacity: 0, x: -50 }, {	opacity: 1, x: 0, ease: 'back.out(1.7)' }, 'anim' );
 	} );
 	gsap.utils.toArray( '.fade-right' ).forEach( ( block, i ) => {
-		const anim = gsap.timeline( {
+		gsap.timeline( {
 			scrollTrigger: {
 				trigger: block,
 			},
+			duration: window.globalOptions.animationDuration,
 			ease: 'back.out(1.7)',
 		} )
-			.fromTo( block, { opacity: 0, x: 50, duration: 0.5 }, {	opacity: 1, x: 0, ease: 'back.out(1.7)' } );
+			.fromTo( block, { opacity: 0, x: 50 }, {	opacity: 1, x: 0, ease: 'back.out(1.7)' }, 'anim' );
 	} );
 }

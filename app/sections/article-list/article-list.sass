@@ -1,0 +1,86 @@
+.article-list
+	$b: &
+	+bg('article-list/article-list-bg.svg', $size: rem(1540px) rem(330px))
+	position: relative
+	@extend %show-in-mobile
+
+	&__content
+		position: relative
+
+	&__block
+
+		+media($min: 641px)
+			max-width: 33rem
+
+		+media(960px, 641px)
+			margin: auto
+		
+		+media($min: 1201px)
+			max-width: rem(650px)
+
+	&__title
+
+		+media(960px, 481px)
+			text-align: center
+
+	&__img
+		display: block
+		+size(rem(360px), rem(240px))
+
+		+media($min: 961px)
+			position: absolute
+			right: 4rem
+			top: 2rem
+		
+		+media(960px)
+			margin: 2.6rem auto 0
+
+	&__info
+		margin-top: rem(30px)
+
+		> * + *
+			margin-top: rem(20px)
+		
+		+media(960px)
+			margin-top: 4rem
+
+	&__text
+
+		&--size
+			&--md
+				@extend %text-16
+
+			&--xl
+				@extend %text-18
+
+	&__list-wrapper
+		position: relative
+		
+	&__list
+
+		> * + *
+			margin-top: 8px
+
+	&__item
+		position: relative
+		@extend %text-16
+		padding-left: 1.8em
+
+		&::before
+			content: ''
+			position: absolute
+			left: 0
+			+cy
+			+size(1.1em, 1.2em)
+			background-image: url("data:image/svg+xml,%3Csvg  viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.33859 17C5.32185 17 5.30511 17 5.28418 17C4.50562 16.9788 3.81914 16.4706 3.55962 15.7252L0.106319 5.75569C-0.236918 4.76043 0.277938 3.67623 1.26161 3.32471C2.24527 2.97743 3.31684 3.49835 3.66427 4.49361L5.61486 10.1221C7.30174 6.92035 9.92207 2.70214 12.9861 0.381285C13.8191 -0.249752 14.9995 -0.0803464 15.6232 0.762448C16.2468 1.60524 16.0794 2.79955 15.2464 3.43059C10.8136 6.78906 7.11757 15.7337 7.0799 15.8226C6.78689 16.5384 6.10041 17 5.33859 17Z' fill='%236374FF'/%3E%3C/svg%3E%0A")
+			background-repeat: no-repeat
+			background-size: contain
+			background-position: center
+
+	&__line
+		position: absolute
+		right: 0
+		bottom: 0
+		transform: translateY(70%)
+		+size(15vh, 60vh)
+		z-index: 10

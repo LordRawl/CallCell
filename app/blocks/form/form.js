@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import './validationForm';
+import './validationAndSubmitForm';
 import Checkbox from './checkbox';
 
 function _checkboxInit() {
@@ -20,26 +20,31 @@ function _checkboxInit() {
 	} );
 }
 
+Element.prototype.multipleEventListeners = function ( events, listener ) {
+	events.forEach( ( event ) => {
+		this.addEventListener( event, listener, false );
+	} );
+};
+
 function _inputFocusable() {
-	const inputs = document.querySelectorAll( '.form-group__input' );
+	document.body.multipleEventListeners( ['input', 'focusin', 'focusout'], ( e ) => {
+		const input = e.target.closest( '.form-group__input' );
 
-	if ( !inputs ) return;
+		if ( !input ) return;
 
-	inputs.forEach( ( input ) => {
 		const group = input.closest( '[data-form-group]' );
-		input.addEventListener( 'focus', ( ) => {
-			group.classList.add( 'form-group--focus' );
-		} );
-		input.addEventListener( 'blur', ( ) => {
-			group.classList.remove( 'form-group--focus' );
-		} );
-		input.addEventListener( 'input', ( ) => {
+
+		if ( e.type === 'input' ) {
 			if ( input.value.length !== 0 ) {
 				group.classList.add( 'form-group--active' );
 			} else {
 				group.classList.remove( 'form-group--active' );
 			}
-		} );
+		} else if ( e.type === 'focusin' ) {
+			group.classList.add( 'form-group--focus' );
+		} else if ( e.type === 'focusout' ) {
+			group.classList.remove( 'form-group--focus' );
+		}
 	} );
 }
 

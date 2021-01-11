@@ -1,16 +1,27 @@
 .audit
 	$b: &
-	padding: rem(100px) 0 rem(110px)
 	position: relative
 	z-index: 1
-	+bg('audit/audit-bg.svg', $size: rem(1600px) rem(500px))
 
+	+media($min: 1201px)
+		+bg('audit/audit-bg.svg', $size: rem(1600px) rem(500px))
+
+	+media(640px)
+		padding-bottom: 4rem
+	
 	&__content
 		display: flex
 		align-items: flex-start
 
-		> * + *
-			margin-left: rem(50px)
+		+media($min: 961px)
+			> * + *
+				margin-left: rem(50px)
+
+		+media(960px)
+			flex-direction: column
+
+			> * + *
+				margin-top: 2rem
 
 	&__block
 
@@ -18,7 +29,13 @@
 
 		&--form
 			flex-shrink: 0
-			padding-top: rem(10px)
+
+			+media($min: 961px)
+				padding-top: rem(10px)
+			
+			+media(960px)
+				margin-right: auto
+				margin-left: auto
 
 	&__title
 		text-align: left
@@ -28,15 +45,61 @@
 		color: $color-text-second
 		margin-top: rem(35px)
 
+		+media(960px)
+			margin-top: 2rem
+
 	&__img-wrapper
 		position: relative
-		+size(rem(517px), rem(374px))
+		z-index: 1
 		margin-top: rem(45px)
+		pointer-events: none
+
+		+size(rem(517px), rem(374px))
+ 
+		+media(1200px)
+			+size(27rem, 20rem)
+
+		+media(960px)
+			margin: 2rem auto 0
+
+		+media($min: 1201px)
+			&:hover
+				.audit__img-man 
+					transform: translate(-50%, -50%) scale(1.2)
 
 	&__img
-		+fill-img
+		+size(100%)
+
+	&__img-man
+		+size(100%)
+		position: absolute
+		transition: 0.3s
+		+cxy
+
+	&__img-man-wrapper
+		position: absolute
+		left: 4rem
+		top: 4.7rem
+		border-radius: 50%
+		overflow: hidden
+		z-index: -1
+		display: flex
+		align-items: center
+		justify-content: center
+		+size(rem(230px))
+
+		+media(1200px)
+			+size(12.2rem)
+			left: 3.2rem
+			top: 4rem
 
 	&__form
 		width: rem(470px)
 		padding: rem(70px)
+
+		+media(480px)
+			padding: 4rem 3rem
+		
+		+media(400px)
+			width: 100%
 

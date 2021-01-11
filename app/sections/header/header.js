@@ -1,15 +1,8 @@
-
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin( ScrollTrigger );
-
-
 let Y = 0;
 let _headerIsFixed = false;
 let isShowMenu = false;
 const header = document.querySelector( '.header' );
-const menuToggle = document.querySelector( '.js-menu-toggle' );
+const menuToggle = document.querySelector( '[data-menu-toggle]' );
 
 export function toggleHeader() {
 	if ( !header ) return;
@@ -19,7 +12,7 @@ export function toggleHeader() {
 		.getPropertyValue( 'transition-duration' )
 		.replace( 's', '' );
 
-	if ( window.pageYOffset > Y && !_headerIsFixed ) {
+	if ( window.pageYOffset > Y && !_headerIsFixed && window.innerWidth > 960 ) {
 		header.style.transitionDuration = '0s';
 		header.style.transform = 'translateY(-100%)';
 		header.style.position = 'fixed';
@@ -30,7 +23,7 @@ export function toggleHeader() {
 			header.style.removeProperty( 'transition-duration' );
 			header.style.transform = 'translateY(0)';
 		}, 10 );
-	} else if ( window.pageYOffset <= Y && _headerIsFixed ) {
+	} else if ( window.pageYOffset <= Y && _headerIsFixed && window.innerWidth > 960 ) {
 		header.style.transform = 'translateY(-100%)';
 		_headerIsFixed = false;
 
@@ -46,14 +39,13 @@ export function toggleMenu( isShow ) {
 	if ( !header ) return;
 
 	if ( isShow ) {
-		header.classList.remove( '-open-' );
-		menuToggle.classList.remove( '-active-' );
+		header.classList.remove( 'header--open' );
+		menuToggle.classList.remove( 'toggle--active' );
 
-		if ( window.pageYOffset <= Y ) { header.classList.remove( '-bg-' ); }
 		if ( window.innerWidth < 641 ) document.body.style.removeProperty( 'overflow' );
 	} else {
-		header.classList.add( '-open-', '-bg-' );
-		menuToggle.classList.add( '-active-' );
+		header.classList.add( 'header--open' );
+		menuToggle.classList.add( 'toggle--active' );
 
 		if ( window.innerWidth < 641 ) document.body.style.overflow = 'hidden';
 	}
@@ -61,48 +53,21 @@ export function toggleMenu( isShow ) {
 	isShowMenu = !isShow;
 }
 
-
-function _headerAnimInit() {
-	gsap
-		.timeline( {
-			scrollTrigger: {
-				trigger: '.header',
-				start: 'top top+=10%',
-			},
-		} )
-		.fromTo( ['.header__logo', '.header__item', '.header__call', '.header__button-wrapper'], {
-			opacity: 0,
-			y: -50,
-		}, {
-			opacity: 1,
-			y: 0,
-			stagger: 0.1,
-			ease: 'back.out(1.7)',
-		} );
-}
-
-export default function headerFunc() {
-	_headerAnimInit();
-
-
+export default function headerInit() {
 	if ( !header ) return;
+
+	const showHeaderAfterThisBlock = header.nextElementSibling.firstElementChild;
+
+	Y = showHeaderAfterThisBlock.getBoundingClientRect().height - 20;
+
 	/* Показываем/Скрываем фиксированное меню  */
-
-	Y = document.querySelector( '.main' ).getBoundingClientRect().height - 20;
-
 	toggleHeader();
 
 	window.addEventListener( 'scroll', toggleHeader );
 
 	/* Показываем/скрываем меню */
-
-	// const menuField = document.querySelector( '.js-menu-field' );
 	if ( !menuToggle ) return;
 	menuToggle.addEventListener( 'click', () => {
 		toggleMenu( isShowMenu );
 	} );
-
-	// window.addEventListener( 'resize', () => {
-	// 	if ( window.innerWidth > 641 && isShowMenu ) toggleMenu( true );
-	// } );
 }

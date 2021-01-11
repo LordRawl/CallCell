@@ -1,27 +1,58 @@
 $q-arrow-duration: 0.5
 $q-arrow-delay: 3
-  
+
+%mobile-text
+  +media(960px)
+    &::before
+      content: attr(data-text)
+
 .questions
   position: relative
-  +bg('questions/questions-bg.svg', $position: 90% 50%, $size: rem(148px) rem(325px), $color: $color-main)
+  padding: 0
+
+  +media($min: 481px)
+    +bg('questions/questions-bg.svg', $position: 90% 50%, $size: rem(148px) rem(325px), $color: $color-main)
+  
+  +media(480px)
+    background-color: $color-main
 
   &__content
     padding: rem(100px) 0
     display: flex
     position: relative
+    z-index: 1
+
+    +media(960px)
+      flex-direction: column
+      align-items: center
+      padding-bottom: 0
+
+    +media(640px)
+      padding-top: 4rem
 
   &__block
 
     &--text
-      max-width: rem(470px)
+      max-width: rem(460px)
 
       > * + *
         margin-top: rem(40px)
 
+      +media(960px)
+        max-width: 30rem
+
     &--img
+      font-size: 0
+
+      +media(960px)
+        position: relative
+        margin-top: 2rem
 
   &__title
     color: $color-text-light
+
+    +media(960px)
+      text-align: center
 
   &__text
     color: $color-text-light
@@ -29,15 +60,31 @@ $q-arrow-delay: 3
 
   &__form
     width: rem(330px)
+    
+    +media(960px)
+      width: 100%
+    
+    +media(640px)
+      margin-top: 3rem
 
   &__img
+    position: relative
+    display: inline-block
     +size(rem(706px), rem(606px))
-    position: absolute
-    right: 0
-    bottom: 0
-    font-size: 0
-    transition-delay: 0.5s
-    transition-duration: 0.9s
+
+    +media($min: 961px)
+      z-index: -1
+      position: absolute
+      right: 0
+      bottom: 0
+      transition-duration: 0.5s
+
+    +media(1200px)
+      +size(35rem, 30rem)
+
+    +media(640px)
+      +size(29rem, 25rem)
+    
 
     img
       +fill-img
@@ -47,6 +94,15 @@ $q-arrow-delay: 3
     left: 28.7rem
     top: 23.6rem
     z-index: 9
+
+    +media(1200px)
+      left: 25rem
+      top: 25rem
+    
+    +media(960px)
+      left: 0
+      top: auto
+      bottom: 3rem
 
   &__arrow-wrapper
     position: absolute
@@ -59,11 +115,15 @@ $q-arrow-delay: 3
     stroke: $color-text-light
 
   &__arrow-line
-    stroke-dasharray: 0 120
-    stroke-dashoffset: 1
+
+    +media($min: 961px)
+      stroke-dasharray: 0 120
+      stroke-dashoffset: 1
 
   &__arrow-pike
-    opacity: 0
+
+    +media($min: 961px)
+      opacity: 0
 
   &__name
     @extend %text-24
@@ -72,12 +132,26 @@ $q-arrow-delay: 3
     color: $color-third
     line-height: 1.2
     display: table-caption
+    @extend %mobile-text
+
+    +media(960px)
+      font-size: 0
+
+    &::before
+      @extend %text-24
 
   &__descr
     @extend %text-14
     color: $color-text-gray
     margin-top: rem(5px)
     display: table-caption
+    @extend %mobile-text
+
+    +media(960px)
+      font-size: 0
+
+    &::before
+      @extend %text-14
 
   &__triangles
     +size(rem(150px), rem(470px))

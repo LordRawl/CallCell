@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 const gulp = require( 'gulp' );
 const pug = require( 'gulp-pug' );
 const plumber = require( 'gulp-plumber' );
@@ -10,7 +11,7 @@ const getData = require( 'jade-get-data' )( 'app/data' );
 module.exports = () => gulp
 	.src( 'app/**/*.pug' )
 	.pipe( plumber( { errorHandler: errorHandler( 'Error in templates task' ) } ) )
-	.pipe( filter( ( file ) => /app[\\\/]pages/.test( file.path ) ) ) // eslint-disable-line no-useless-escape
+	.pipe( filter( ( file ) => /app[\\\/]pages/.test( file.path ) ) )
 	.pipe( pug( { data: { getData } } ) )
 	.pipe(
 		prettify( {

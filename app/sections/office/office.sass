@@ -1,23 +1,43 @@
 .office
-  padding: rem(100px) 0 rem(170px)
+  padding-bottom: rem(170px)
   position: relative
   z-index: 1
-  background-image: url(../images/office/office-bg.svg)
-  background-position: 50%, 50% 101%
-  background-size: auto, rem(900px) rem(50px)
-  background-repeat: no-repeat, repeat-x
+
+  +media($min: 1201px)
+    background-image: url(../images/office/office-bg.svg)
+    background-position: 50%
+    background-size: rem(1851px) rem(462px)
+    background-repeat: no-repeat
+
+  +media(960px)
+    padding-bottom: 8rem
+
+  +media(640px)
+    padding-bottom: 6rem
 
   &__content
     position: relative
 
+    +media(960px)
+      max-width: rem(500px)
+      margin: auto
+
   &__block
-    max-width: rem(540px)
-    margin-left: auto
+
+    +media($min: 961px)
+      max-width: rem(540px)
+      margin-left: auto
 
   &__title
 
+    +media(960px, 480px)
+      text-align: center
+
   &__text
     @extend %text-18
+
+    +media(370px)
+      font-size: 1.6rem
 
     &--mt
 
@@ -27,6 +47,10 @@
   &__list-wrapper
     margin-top: rem(20px)
     position: relative
+    
+    +media(960px)
+      max-width: 24rem
+    
 
   &__list
 
@@ -37,6 +61,9 @@
     position: relative
     @extend %text-16
     padding-left: 1.8em
+
+    +media(370px)
+      font-size: 1.4rem
 
     &::before
       content: ''
@@ -50,34 +77,61 @@
       background-position: center
 
   &__descr
-    @extend %text-16
 
   &__arrow-wrapper
     position: absolute
     top: 100%
     right: 30%
-    // transform: translateY(-20%)
+
+    +media(960px)
+      top: auto
+      bottom: -3.5rem
+      right: -1rem
+      transform: rotate(-30deg)
+    
+    +media(480px)
+      bottom: -2rem
 
   &__arrow
     +size(rem(40px), rem(100px))
     stroke: black
 
   &__arrow-line
-    stroke-dasharray: 0 120
-    stroke-dashoffset: 1
+
+    +media($min: 961px)
+      stroke-dasharray: 0 120
+      stroke-dashoffset: 1
 
   &__arrow-pike
-    opacity: 0
+
+    +media($min: 961px)
+      opacity: 0
 
   &__bottom
     margin-top: rem(60px)
 
+    +media(960px)
+      text-align: center
+
   &__button
 
   &__monitor
-    position: absolute
-    left: 3rem
-    top: -1%
+    display: block
+
+    +media(1200px)
+      width: 24rem
+    
+    +media($min: 961px)
+      position: absolute
+      left: 3rem
+      top: -1%
+
+    +media(960px)
+      position: relative
+      margin: 3rem auto 0
+        
+    +media(640px)
+      width: 50vw
   
 
     

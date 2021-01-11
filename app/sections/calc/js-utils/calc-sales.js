@@ -30,8 +30,9 @@ const recalc = ( ) => {
 
 
 	const output = document.querySelector( '[data-calc-output="sales"]' );
-	const result = 0.7 * contacts * ( client + lpr + crm + messangers + letters ) + script;
+	let result = 0.7 * contacts * ( client + lpr + crm + messangers + letters ) + script;
 
+	result = result < 10000 ? 10000 : result;
 	output.textContent = numberFormat( Math.ceil( +result ) );
 };
 

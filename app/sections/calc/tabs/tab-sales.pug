@@ -1,4 +1,4 @@
-+tab-wrapper()(data-tab="calc-tab-2" data-tab-group="calcTabs" data-calc-store="sales").calc__slide
++tab-wrapper()(data-tab="sales" data-tab-group="calcTabs").calc__slide
 	+e('ul').list
 		+e('li').item(data-range-wrapper="", class="--min")
 			+e.header
@@ -14,7 +14,7 @@
 				data-range-type="contacts"
 			)
 		
-		+e('li').item(data-range-wrapper="", class="--min")
+		+e('li').item.__item--mobile--oe(data-range-wrapper="", class="--min")
 			+e.header
 				span.calc__subtitle Разработка скрипта
 
@@ -27,7 +27,7 @@
 				data-switch-type="script"
 			)
 		
-		+e('li').item--df.__item--aie(data-range-wrapper="", class="--max")
+		+e('li').item--df.__item--aie.__item--mobile--fdc(data-range-wrapper="", class="--max")
 			+e.item-block--max
 				+e.header
 					span.calc__subtitle Ваш клиент
@@ -51,39 +51,37 @@
 					data-checkbox-type="lpr"
 					data-checkbox-connect="client"
 				) 
-					+b('p').calc__checkbox-text--normal Выходим на лицо принимающее решение (ЛПР)
+					+b('p').calc__checkbox-text--normal Выходим на лицо принимающее решение&nbsp;(ЛПР)
 		
-		+e('li').item--df(data-range-wrapper="", class="--max")
+		+e('li').item--df.__item--ais.__item--mobile--oe(data-range-wrapper="", class="--max")
 			+e.item-block
 				+e.header
 					span.calc__subtitle Работа в
 			
-			+e.item-block
-				+checkbox().--size--xl(
-					data-calc-checkbox=""
-					data-false-value="0",
-					data-true-value="5",
-					data-checkbox-type="crm"
-				) 
-					+b('p').calc__checkbox-text--bold CRM
+			+e.checkboxes
+					+checkbox().--size--xl(
+						data-calc-checkbox=""
+						data-false-value="0",
+						data-true-value="5",
+						data-checkbox-type="crm"
+					) 
+						+b('p').calc__checkbox-text--bold CRM
 
-			+e.item-block
-				+checkbox().--size--xl(
-					data-calc-checkbox=""
-					data-false-value="0",
-					data-true-value="4",
-					data-checkbox-type="messangers"
-				) 
-					+b('p').calc__checkbox-text--bold Мессенджерах
+					+checkbox().--size--xl(
+						data-calc-checkbox=""
+						data-false-value="0",
+						data-true-value="4",
+						data-checkbox-type="messangers"
+					) 
+						+b('p').calc__checkbox-text--bold Мессенджерах
 
-			+e.item-block
-				+checkbox().--size--xl(
-					data-calc-checkbox=""
-					data-false-value="0",
-					data-true-value="4",
-					data-checkbox-type="letters"
-				) 
-					+b('p').calc__checkbox-text--bold Отправка писем
+					+checkbox().--size--xl(
+						data-calc-checkbox=""
+						data-false-value="0",
+						data-true-value="4",
+						data-checkbox-type="letters"
+					) 
+						+b('p').calc__checkbox-text--bold Отправка писем
 		
 	+e.bottom
 		+e('p').text--max--md Прогнозируемая стоимость
@@ -96,3 +94,4 @@
 			+e('path')(d="M.33,47.37C15.89,60.88,31.11,63.62,51.14,62.59c27.92-.9,40.53-13.52,74.17-17.86C157,43.4,166.79,66.15,153.19,77.81c-16.73,12.29-39.69-9.18-29.13-35.09,9.57-20.15,27.24-23,47.17-41.46").arrow-line
 			+e('polyline')(points="167.59 1.89 171.74 0.72 170.55 4.85").arrow-pike
 
+		+e('p').anno *Не является офертой. Расчет является предварительным. 

@@ -1,0 +1,88 @@
+.thanks
+	$b: &
+	$b-bg-color: str-slice(#{$color-main}, 2, -1)
+	background-color: $bg-second
+	flex-grow: 1
+	padding: 4rem 0
+	display: flex
+	align-items: center
+	min-height: rem(600px)
+
+	+media($min: 961px)
+		background-image: url(../images/thanks/thanks-bg.svg)
+		background-position: center
+		background-repeat: no-repeat
+		background-size: 1650px 450px
+	
+	+media(1200px)
+		min-height: 32rem
+	
+	+media(960px)
+		padding: 1rem 0 6rem
+
+	&__wrapper
+		position: relative
+		z-index: 1
+		display: flex
+
+		+media(960px)
+			flex-direction: column
+			align-items: center
+
+	&__img-wrapper
+		position: relative
+		display: inline-block
+
+		+media($min: 961px)
+			position: absolute
+			right: 2rem
+			+cy
+
+	&__img
+		+size(rem(551px), rem(470px))
+		display: inline-block
+
+		+media(1200px)
+			+size(21rem, 18rem)
+
+	&__content
+
+		+media(960px)
+			text-align: center
+			margin-top: 2rem
+
+	&__title
+		font-size: rem(50px)
+		font-weight: 700
+		font-family: $font-second
+		line-height: 1.2
+		position: relative
+		padding-left: rem(45px)
+		display: inline-block
+
+		+media(960px)
+			font-size: 2.6rem
+
+		&::before
+			content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 33.31 54.31'%3E%3Cpolyline fill='none' stroke='%23#{$b-bg-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='5px' points='2.5 33.13 12.31 51.81 30.81 2.5' /%3E%3C/svg%3E")
+			position: absolute
+			+size(rem(32px), rem(50px))
+			top: 0
+			left: 0
+
+	&__subtitle
+		@extend %text-16
+		color: $color-text-second
+		margin-top: rem(30px)
+
+		+media(480px)
+			margin-top: 1.3rem
+
+	&__bottom
+		margin-top: rem(70px)
+
+		+media(480px)
+			width: 100%
+			margin-top: 4rem
+
+	&__button

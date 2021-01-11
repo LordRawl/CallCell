@@ -1,12 +1,5 @@
 
 // ##########
-// Глобальные css переменные
-// ##########
-
-\:root
-	--text-main-bold: #000
-
-// ##########
 // Базовый размер шрифта
 // ##########
 
@@ -38,6 +31,7 @@ $color-text-main: #292929 // Основной цвет текста
 $color-text-light: #FFF
 $color-text-second: #757575
 $color-text-gray: #CCC
+$color-text-gray-light: #E9E9E9
 $color-basic: $color-text-main // Основной цвет текста (применяется к body)
 $color-input: black // Основной цвет input, select и textarea
 
@@ -47,17 +41,6 @@ $color-second-gray: #A8A8A8
 
 $bg-basic: #fff
 $bg-second: #F6F6F6
-
-// ##########
-// Массив цветов для UI-кита
-// ##########
-
-$colors: ('$color-basic': black, '$color-placeholder': #777, '$color-input': black, '$color-main': #2252d8, '$color-border': #ccc)
-$colors: ('$color-basic': $color-basic)
-$colors: map-merge($colors, ('$color-placeholder': $color-placeholder))
-$colors: map-merge($colors, ('$color-input': $color-input))
-$colors: map-merge($colors, ('$color-main': $color-main))
-$colors: map-merge($colors, ('$color-border': $color-border))
 
 // ##########
 // Transitions
@@ -70,14 +53,6 @@ $ease-main: .3s ease
 // ##########
 
 $font-main: OpenSans, Arial, sans-serif // Основной шрифт сайта
-$font-second: Exo2, Times New Roman, sans-serif // Дополнительный шрифт
+$font-second: Exo2, Trebuchet MS, sans-serif // Дополнительный шрифт
 $font-input: $font-main
 
-// ##########
-// Цвета для UI-кита 
-// ##########
-
-$ui-kit-bg: white // Фон кита
-$ui-kit-color-text: black // Цвет текста
-$ui-kit-color-gray: #ccc // Цвет границ
-$ui-kit-color-darkbg: #111 // Фон темной секции

@@ -1,6 +1,6 @@
 mixin services()
   <!--begin services-->
-  +b('section').services&attributes(attributes)
+  +b('section').services#services.fade&attributes(attributes)
     .container
       +e.content
         +e('h2').title.title.fade-bottom Выполним ваши задачи по звонкам и продажам
@@ -12,7 +12,7 @@ mixin services()
               each item in getData('services').list
                 +e('li').item.swiper-slide
                   +e.image-wrapper
-                    +e('img').image(src=item.img, alt=item.title)
+                    +e('img').image.lazy(data-src=item.img, alt=item.title, width="200", height="155")
                   +e('h3').heading!= item.title
                   +e('p').descr!= item.text
             
@@ -24,13 +24,13 @@ mixin services()
         .swiper__paginations.services-slider__paginations.fade-bottom
           
         +e.bottom.fade-bottom
-          +button.--size--xl.__button Заказать услугу
+          +button(type="button" data-modal-target="price").--size--xl.__button Заказать услугу
     
-        +triangles.__triangles.fade
+        +triangles.__triangles.fade(width="150" height="470")
 
 
     - var finger = getData('services')['finger']
-    +e.field
+    +e.hand-wrapper
       | !{finger}
     
     +dashed-line.__line

@@ -1,4 +1,4 @@
-+tab-wrapper(true)(data-tab="calc-tab-1" data-tab-group="calcTabs" data-calc-store="leads").calc__slide
++tab-wrapper(true)(data-tab="leads" data-tab-group="calcTabs").calc__slide
 	+e('ul').list
 		+e('li').item(data-range-wrapper="", class="--min").fade-bottom
 			+e.header
@@ -40,7 +40,7 @@
 				data-range-type="days"
 			)
 
-		+e('li').item(data-range-wrapper="", class="--min").fade-bottom
+		+e('li').item.__item--mobile--oe(data-range-wrapper="", class="--min").fade-bottom
 			+e.header
 				span.calc__subtitle Разработка скрипта
 
@@ -56,7 +56,7 @@
 		+e('li').item--df(data-range-wrapper="", class="--max").fade-bottom
 			+e.item-block--max(data-range-connect="time")
 				+e.header
-					span.calc__subtitle Средняя продолжительность разговора 
+					span.calc__subtitle Среднее время разговора
 					span.calc__accent(data-range-counter="")
 
 				+range(
@@ -68,7 +68,7 @@
 					data-range-type="time"
 				)
 
-			+e.item-block
+			+e.item-block--mobile--posa
 				+checkbox().--size--xl(
 					data-calc-checkbox=""
 					data-false-value="0",
@@ -77,39 +77,37 @@
 				) 
 					+b('p').calc__checkbox-text--normal Я не знаю
 
-		+e('li').item--df(data-range-wrapper="", class="--max").fade-bottom
+		+e('li').item--df.__item--ais.__item--mobile--oe(data-range-wrapper="", class="--max").fade-bottom
 			+e.item-block
 				+e.header
 					span.calc__subtitle Работа в
 			
-			+e.item-block
-				+checkbox().--size--xl(
-					data-calc-checkbox=""
-					data-false-value="0",
-					data-true-value="1",
-					data-checkbox-type="crm"
-				) 
-					+b('p').calc__checkbox-text--bold CRM
+			+e.checkboxes
+					+checkbox().--size--xl(
+						data-calc-checkbox=""
+						data-false-value="0",
+						data-true-value="1",
+						data-checkbox-type="crm"
+					) 
+						+b('p').calc__checkbox-text--bold CRM
 
-			+e.item-block
-				+checkbox().--size--xl(
-					data-calc-checkbox=""
-					data-false-value="0",
-					data-true-value="1",
-					data-checkbox-type="messangers"
-				) 
-					+b('p').calc__checkbox-text--bold Мессенджерах
+					+checkbox().--size--xl(
+						data-calc-checkbox=""
+						data-false-value="0",
+						data-true-value="1",
+						data-checkbox-type="messangers"
+					) 
+						+b('p').calc__checkbox-text--bold Мессенджерах
 
-			+e.item-block
-				+checkbox().--size--xl(
-					data-calc-checkbox=""
-					data-false-value="0",
-					data-true-value="1",
-					data-checkbox-type="letters"
-				) 
-					+b('p').calc__checkbox-text--bold Отправка писем
-		
-	+e.bottom.fade-bottom
+					+checkbox().--size--xl(
+						data-calc-checkbox=""
+						data-false-value="0",
+						data-true-value="1",
+						data-checkbox-type="letters"
+					) 
+						+b('p').calc__checkbox-text--bold Отправка писем
+			
+	+e.bottom.fade-bottom(data-calc-wrapper="leads")
 		+e('p').text--max--md Прогнозируемая стоимость
 		+e('p').price
 			+e('span')(data-calc-output="leads").price-numb 0
@@ -119,3 +117,5 @@
 		+e('svg').arrow(viewBox="0 0 172.46 81.87")
 			+e('path')(d="M.33,47.37C15.89,60.88,31.11,63.62,51.14,62.59c27.92-.9,40.53-13.52,74.17-17.86C157,43.4,166.79,66.15,153.19,77.81c-16.73,12.29-39.69-9.18-29.13-35.09,9.57-20.15,27.24-23,47.17-41.46").arrow-line
 			+e('polyline')(points="167.59 1.89 171.74 0.72 170.55 4.85").arrow-pike
+		
+		+e('p').anno *Не является офертой. Расчет является предварительным. 

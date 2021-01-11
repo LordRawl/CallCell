@@ -19,10 +19,13 @@ const optimization = () => {
 
 module.exports = ( watch = false ) => ( {
 	mode: isDebug ? 'development' : 'production',
-	entry: path.resolve( './app/scripts/app.js' ),
+	entry: {
+		app: path.resolve( './app/scripts/app.js' ),
+		animation: path.resolve( './app/scripts/animation.js' ),
+	},
 	output: {
 		publicPath: '/assets/scripts/',
-		filename: 'app.min.js',
+		filename: '[name].min.js',
 		path: path.resolve( './dist/assets/scripts/' ),
 	},
 	resolve: {

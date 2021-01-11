@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin( ScrollTrigger );
 
-export default function mainInit() {
+export default function trianglesAnimation() {
 	gsap.utils.toArray( '.triangles' ).forEach( ( block, i ) => {
 		gsap.timeline( {
 			scrollTrigger: {

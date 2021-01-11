@@ -40,8 +40,9 @@ const recalc = ( ) => {
 	}
 
 	const output = document.querySelector( '[data-calc-output="man"]' );
-	const result = totalHours * totalPricePerHour + script;
+	let result = totalHours * totalPricePerHour + script;
 
+	result = result < 10000 ? 10000 : result;
 	output.textContent = numberFormat( Math.ceil( +result ) );
 };
 

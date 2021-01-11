@@ -1,6 +1,6 @@
 mixin questions()
   <!--begin questions-->
-  +b('section').questions&attributes(attributes)
+  +b('section').questions.fade&attributes(attributes)
     .container
       +e.content
         +e.block--text
@@ -9,35 +9,33 @@ mixin questions()
 
           +form.--theme--light.__form
             +form-group.fade-bottom
-              +input-wrapper('Контактный номер')
+              +input-wrapper('Контактный номер')(name="phone" type="text")
             
             +form-group.fade-bottom
-              +button().--size--xl.__button Оставить телефон
+              +button(type="submit").--size--xl.__button Оставить телефон
 
             +e('label').accept.fade-bottom
               +checkbox().--size--md(
                 data-form-checkbox=""
-                data-false-value="0",
-                data-true-value="1",
-                data-checkbox-type=""
+                data-checkbox-type="accept"
               )
                 p.form__accept-text Я принимаю условия 
                   a(href="#" target="_blank").form__accept-link передачи информации
 
         +e.block--img
-          +img(src="questions/lera.png", webp).img.fade
+          +img(src="questions/lera.png", webp, alt="Лера Козлова", size="706, 606").img.fade
 
           +e.subblock
             +e.arrow-wrapper
-              +e('svg').arrow(viewBox="0 0 97.47 42.17")
+              +e('svg').arrow(viewBox="0 0 97.47 42.17" fill="none")
                 +e('path')(d="M.47,42.31C14.14,3.43,55.41-5.51,96,8.53" stroke-linecap="round").arrow-line
                 +e('path')(d="M88.13,10.42a52.37,52.37,0,0,1,8.34-1.66L89.88.31").arrow-pike
 
-            +e('p').name
-            +e('p').descr
+            +e('p').name(data-text="Лера Козлова")
+            +e('p').descr(data-text="Руководитель CallCell")
     
 
-        +triangles.__triangles.fade
+        +triangles.__triangles.fade(width="150" height="470")
 
   <!--end questions-->
     

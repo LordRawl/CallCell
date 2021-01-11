@@ -3,7 +3,10 @@ mixin header()
   +b('header').header&attributes(attributes)
     .container
       +e.content
-        +logo.__logo
+        +e.block
+          +toggle.__toggle
+
+          +logo.__logo
 
         +e.navbar
           +e('ul').list
@@ -17,7 +20,7 @@ mixin header()
           +call.__call
 
           +e.button-wrapper
-            +button(type="button").--size--md.__button Перезвоните мне
+            +button(type="button" data-modal-target="price").--size--md.__button Перезвоните мне
 
   <!--end header-->
     

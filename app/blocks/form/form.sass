@@ -19,6 +19,12 @@
 		.form--theme--light &
 			color: $color-text-light
 	
+	&__subtitle
+		@extend %text-16
+
+		+media(480px)
+			font-size: 1.3rem
+
 	&__descr
 		@extend %text-14
 		text-align: center

@@ -1,6 +1,7 @@
 mixin tabs()
-	+b('ul').tabs&attributes(attributes)
-		block
+	+b.tabs__wrapper.swiper-container&attributes(attributes)
+		+b('ul').tabs.swiper-wrapper
+			block
 
 mixin tab()
 	+e('li').item&attributes(attributes)

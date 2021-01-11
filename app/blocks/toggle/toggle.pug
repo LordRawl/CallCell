@@ -1,18 +1,18 @@
-mixin social()
-  +b.social&attributes(attributes)
-    block
+mixin toggle()
+  +b.toggle(data-menu-toggle)&attributes(attributes)
+    +e('span').line
     
-mixin ui-kit-social()
+mixin ui-kit-toggle()
   +ui-section
     +ui-section-head
-      +ui-title Компонент social
+      +ui-title Блок toggle
       +ui-path
-        p Компонент: components/social/social
+        p Блок: blocks/toggle/toggle
       +ui-description
-        p Описание компонента
+        p Описание Блока
   
     +ui-section-content()
-      +social
+      +toggle
       
     //- При +ui-section-content(true) контейнер отсутствует
     //- Для перечисления инлайновых блоков используется миксин +ui-elements-list()

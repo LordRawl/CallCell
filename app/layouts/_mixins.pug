@@ -1,4 +1,4 @@
-mixin img
+mixin img(isNolazy)
 	-
 		attributes.src = attributes.src || ''
 		attributes.alt = attributes.alt || ''
@@ -36,28 +36,60 @@ mixin img
 			return result
 		}
 
+		var width, height
+
+		if (attributes.size) {
+			var size = attributes.size.replace(/\s/g, '').split(',')
+			width = size[0]
+			height = size[1] || size[0]
+		}
+
 	+e('picture')(class=attributes.class)
-		each ext in extensions
-			if (attributes.adaptive)
-				for size, sizeName in adaptiveSizes
-					-
-						var srcset = getSrc(path_name + postfixSeparator + sizeName, ext)
-						var type = ext=='webp' && 'image/webp'
 
-					source(type=type, srcset=srcset, media='(max-width: ' + size + 'px)')
-					
+		if isNolazy
+			each ext in extensions
+				if (attributes.adaptive)
+					for size, sizeName in adaptiveSizes
+						-
+							var srcset = getSrc(path_name + postfixSeparator + sizeName, ext)
+							var type = ext=='webp' && 'image/webp'
 
-			if (ext =='webp')
-				- var srcset = getSrc(path_name, ext)
-					
-				source(type="image/webp", srcset=srcset)
+						source(type=type, srcset=srcset, media='(max-width: ' + size + 'px)')
+						
 
-		-
-			var srcset = attributes.retina && ('assets/images/' + path_name + '.' + extensions[extensions.length-1] + ' 2x' )
-			attributes.src = 'assets/images/' + attributes.src
-		
-		img(src=attributes.src, srcset=srcset, alt=attributes.alt)
-//- +img(src='mountain.jpg', adaptive='mobile, tablet', retina, webp, alt='Горы с лесом').main__img
+				if (ext =='webp')
+					- var srcset = getSrc(path_name, ext)
+						
+					source(type="image/webp", srcset=srcset)
+
+			-
+				var srcset = attributes.retina && ('assets/images/' + path_name + '.' + extensions[extensions.length-1] + ' 2x' )
+				attributes.src = 'assets/images/' + attributes.src
+			
+			img(src=attributes.src, srcset=srcset, alt=attributes.alt, width=width, height=height)
+
+		else
+			each ext in extensions
+				if (attributes.adaptive)
+					for size, sizeName in adaptiveSizes
+						-
+							var srcset = getSrc(path_name + postfixSeparator + sizeName, ext)
+							var type = ext=='webp' && 'image/webp'
+
+						source(type=type, data-srcset=srcset, media='(max-width: ' + size + 'px)')
+						
+
+				if (ext =='webp')
+					- var srcset = getSrc(path_name, ext)
+						
+					source(type="image/webp", data-srcset=srcset)
+
+			-
+				var srcset = attributes.retina && ('assets/images/' + path_name + '.' + extensions[extensions.length-1] + ' 2x' )
+				attributes.src = 'assets/images/' + attributes.src
+			
+			img(data-src=attributes.src, data-srcset=srcset, alt=attributes.alt, width=width, height=height, class="lazy")
+//- +img(src='mountain.jpg', adaptive='mobile, tablet', retina, webp, alt='Горы с лесом', size="641, 543").main__img
 
 
 

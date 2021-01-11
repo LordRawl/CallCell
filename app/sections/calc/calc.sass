@@ -1,11 +1,22 @@
 $c-w-border-width: 2px
 $c-c-padding: rem(70px)
 
+%calc-wrapper-padding
+	padding: $c-c-padding
+	
+	+media(960px)
+		padding: 3rem
+	
+	+media(640px, 481px)
+		padding: 3rem 1rem
+
 .calc
-	padding: rem(100px) 0
-	+bg('calc/calc-bg.svg', $size: auto)
 	position: relative
 	z-index: 1
+
+	+media($min: 1201px)
+		+bg('calc/calc-bg.svg', $size: auto)
+
 
 	&__content
 
@@ -14,6 +25,14 @@ $c-c-padding: rem(70px)
 
 	&__tabs
 		margin-top: rem(70px)
+		padding-bottom: 0.6rem
+
+		+media(1200px)
+			max-width: 45rem
+
+		+media(480px)
+			padding-bottom: 0.8rem
+			margin-top: 3rem
 
 	&__tabs-content
 		position: relative
@@ -26,32 +45,41 @@ $c-c-padding: rem(70px)
 			flex-grow: 1
 
 	&__wrapper
-		margin-top: rem(40px)
+		margin-top: 1.9rem
 		display: flex
 		justify-content: space-between
 		position: relative
 		border-radius: 5px
 		border: $c-w-border-width solid $color-border
 
+		+media(1200px)
+			flex-direction: column
+			max-width: 45rem
+			margin: 1.9rem auto 0
+
 	&__form
 		background-color: $color-third
-		padding: rem(70px)
 		width: rem(470px)
 		flex-shrink: 0
 		margin: (-$c-w-border-width) (-$c-w-border-width) (-$c-w-border-width) 0
+		@extend %calc-wrapper-padding
+
+		+media(1200px)
+			width: 100%
+		
+		+media(480px)
+			margin: 0
 
 	&__slide
-		padding: $c-c-padding
 		display: flex
 		flex-direction: column
+		@extend %calc-wrapper-padding
 
-	&__anno
-		position: absolute
-		top: 100%
-		left: $c-c-padding
-		@extend %text-14
-		color: $color-text-second
-		transform: translateY(10px)
+		&--mobile
+
+			&--pb
+				+media(480px)
+					padding-bottom: 7rem
 
 	&__header
 		display: flex
@@ -83,15 +111,29 @@ $c-c-padding: rem(70px)
 		align-items: flex-end
 		margin: rem(-50px) rem(-30px) rem(40px)
 
+		+media(640px)
+			margin: -2.5rem -0.5rem 2.5rem
+
 		&--min
 			max-width: 55%
+
+			+media(480px)
+				max-width: 100%
 
 	&__item
 		margin: rem(50px) 0 0
 		padding: 0 rem(30px)
+		position: relative
+
+		+media(640px)
+			margin-top: 2.5rem
+			padding: 0 0.5rem
 
 		&--min
 			width: 50%
+
+			+media(480px)
+				width: 100%
 
 		&--max
 			width: 100%
@@ -103,8 +145,29 @@ $c-c-padding: rem(70px)
 			> * + *
 				margin-left: rem(30px)
 
+				+media(640px)
+					margin-left: 1.5rem
+
 		&--aie
 			align-items: flex-end
+
+		&--ais
+			align-items: flex-start
+		
+		&--mobile
+
+			&--fdc
+				+media(480px)
+					flex-direction: column
+					align-items: flex-start
+
+					> * + *
+						margin-left: 0
+						margin-top: 1rem
+
+			&--oe
+				+media(480px)
+					order: 1
 
 	&__item-block
 		// flex-shrink: 0
@@ -117,6 +180,30 @@ $c-c-padding: rem(70px)
 			opacity: 0.6
 			pointer-events: none
 
+		&--mobile
+
+			&--posa
+				+media(480px)
+					position: absolute
+					right: 0
+					top: 100%
+					margin-top: 1rem
+
+	&__checkboxes
+		display: flex
+		align-items: center
+
+		+media($min: 641px)
+			> * + *
+				margin-left: rem(30px)
+
+		+media(640px)
+			flex-direction: column
+			align-items: flex-start
+
+			> * + *
+				margin-top: 0.5rem
+
 	&__bottom
 		margin-top: auto
 		display: inline-flex
@@ -126,13 +213,56 @@ $c-c-padding: rem(70px)
 		> * + *
 			margin-left: rem(40px)
 
+			+media(640px)
+				margin-left: 1.5rem
+			
+			+media(480px)
+				margin-left: 0
+				margin-top: 1rem
+		
+		+media(480px)
+			flex-direction: column
+			align-items: flex-start
+
+	&__anno
+		@extend %text-14
+		color: $color-text-second
+
+		+media($min: 481px)
+			position: absolute
+			bottom: -3rem
+			left: 0
+			margin: 0
+			transform: translateY(-20px)
+
+		+media($min: 961px)
+			bottom: -$c-c-padding
+		
+		+media($min: 1201px)
+			transform: translateY(30px)
+		
+		+media(480px)
+			max-width: 18rem
+			margin-top: 1rem
+
 	&__text
 		@extend %text-16
 		font-weight: 600
 		color: $color-text-main
 
-		&--max--md
-			max-width: rem(130px)
+		&--max
+			
+			&--md
+				max-width: rem(130px)
+
+			&--xl
+				max-width: rem(240px)
+
+				+media(480px)
+					max-width: 25rem
+		
+		&--color
+			color: $color-main
 	
 	&__price
 		@extend %text-40
@@ -153,7 +283,18 @@ $c-c-padding: rem(70px)
 		font-size: 0
 		z-index: -1
 
+		+media(480px)
+			right: -$container-padding - 2px
+
 	&__img
+		display: inline-block
+		+size(rem(410px), rem(594px))
+
+		+media(1200px)
+			+size(20rem, 28.9rem)
+		
+		+media(480px)
+			+size(20rem, 22.2rem)
 
 	&__arrow
 		position: absolute
@@ -164,12 +305,33 @@ $c-c-padding: rem(70px)
 		left: 24rem
 		top: -1rem
 
+		+media(1200px)
+			+size(9rem, 4.5rem)
+			left: 25rem
+			top: 1rem
+			transform: scaleY(-1) rotate(-30deg)
+		
+		+media(960px, 481px)
+			+size(7rem, 3.5rem)
+		
+		+media(640px)
+			left: 75%
+		
+		+media(480px)
+			transform: scaleY(-1) rotate(-50deg)
+			top: 4rem
+			left: 60%
+			+size(12rem, 7rem)
+
 	&__phone-wrapper
 		position: absolute
 		bottom: 0
 		right: 80%
 		+size(rem(350px), rem(520px))
 		z-index: -1
+
+		+media(640px)
+			display: none
 
 	&__phone
 		+size(100%)

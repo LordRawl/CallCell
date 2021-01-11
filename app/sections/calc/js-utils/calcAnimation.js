@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

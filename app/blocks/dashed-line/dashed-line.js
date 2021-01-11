@@ -4,14 +4,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin( ScrollTrigger );
 
-export default function stagesInit() {
+export default function dashedLineAnimation() {
 	gsap.utils.toArray( '.dashed-line' ).forEach( ( wrapper, i ) => {
 		const lines = wrapper.querySelectorAll( '.dashed-line__svg *' );
 		gsap.timeline( {
 			scrollTrigger: {
 				trigger: wrapper,
 				scrub: true,
-				start: 'top bottom-=20%',
+				start: 'top bottom-=10%',
 				end: 'top 10%',
 				toggleActions: 'play pause play pause',
 			},

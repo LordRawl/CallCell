@@ -1,19 +1,27 @@
 
+%show-in-mobile
+	+media($min: 961px)
+		opacity: 0
+
 .fade
-	opacity: 0
+	@extend %show-in-mobile
 
 	&-left
-		transform: translate3d(-50px, 0, 0)
-		opacity: 0
+		+media($min: 961px)
+			transform: translate3d(-50px, 0, 0)
+			opacity: 0
 
 	&-right
-		transform: translate3d(50px, 0, 0)
-		opacity: 0
+		+media($min: 961px)
+			transform: translate3d(50px, 0, 0)
+			opacity: 0
 
 	&-top
-		transform: translate3d(0, -50px, 0)
-		opacity: 0
+		+media($min: 961px)
+			transform: translate3d(0, -50px, 0)
+			opacity: 0
 
 	&-bottom
-		transform: translate3d(0, 20px, 0)
-		opacity: 0
+		+media($min: 961px)
+			transform: translate3d(0, 20px, 0)
+			opacity: 0
